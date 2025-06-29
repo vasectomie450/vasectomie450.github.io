@@ -1,37 +1,40 @@
 import React from 'react';
 import { CheckCircle, CreditCard, Calculator, TrendingUp, Calendar } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Pricing: React.FC = () => {
+  const { t } = useLanguage();
+
   const included = [
-    'Consultation pré-opératoire',
-    'Procédure vasectomie sans bistouri',
-    'Anesthésie locale',
-    'Suivi post-opératoire',
-    'Instructions de soins',
-    'Ligne d\'urgence 24/7'
+    t('language') === 'fr' ? 'Consultation pré-opératoire' : 'Pre-operative consultation',
+    t('language') === 'fr' ? 'Procédure vasectomie sans bistouri' : 'No-scalpel vasectomy procedure',
+    t('language') === 'fr' ? 'Anesthésie locale' : 'Local anesthesia',
+    t('language') === 'fr' ? 'Suivi post-opératoire' : 'Post-operative follow-up',
+    t('language') === 'fr' ? 'Instructions de soins' : 'Care instructions',
+    t('language') === 'fr' ? 'Ligne d\'urgence 24/7' : '24/7 emergency line'
   ];
 
   const comparisons = [
     {
-      method: 'Pilule contraceptive',
+      method: t('language') === 'fr' ? 'Pilule contraceptive' : 'Birth control pill',
       monthly: 25,
       yearly: 300,
       total10years: 3000
     },
     {
-      method: 'Condoms',
+      method: t('language') === 'fr' ? 'Condoms' : 'Condoms',
       monthly: 20,
       yearly: 240,
       total10years: 2400
     },
     {
-      method: 'DIU (stérilet)',
+      method: t('language') === 'fr' ? 'DIU (stérilet)' : 'IUD',
       monthly: 0,
       yearly: 0,
       total10years: 800
     },
     {
-      method: 'Vasectomie',
+      method: t('language') === 'fr' ? 'Vasectomie' : 'Vasectomy',
       monthly: 0,
       yearly: 0,
       total10years: 640
@@ -48,25 +51,24 @@ const Pricing: React.FC = () => {
       <section className="section-padding bg-gradient-to-br from-ivory-50 to-teal-50">
         <div className="container-max text-center">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            <span className="text-gradient">Prix transparent</span> et abordable
+            <span className="text-gradient">{t('pricing.hero.title')}</span>
           </h1>
           <p className="text-xl text-gray-700 mb-12 max-w-3xl mx-auto">
-            Investissement unique pour une solution contraceptive permanente. 
-            Aucun frais caché, prix tout inclus.
+            {t('pricing.hero.description')}
           </p>
 
           {/* Main Price Card */}
           <div className="max-w-md mx-auto">
             <div className="card bg-gradient-to-br from-teal-500 to-primary-600 text-white text-center relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-coral-500 text-white px-4 py-2 rounded-bl-lg text-sm font-semibold">
-                Tout inclus
+                {t('language') === 'fr' ? 'Tout inclus' : 'All inclusive'}
               </div>
               
               <div className="pt-8">
-                <h2 className="text-2xl font-bold mb-4">Vasectomie sans bistouri</h2>
+                <h2 className="text-2xl font-bold mb-4">{t('pricing.main.title')}</h2>
                 <div className="mb-6">
-                  <span className="text-5xl font-bold">640$</span>
-                  <p className="text-white/80 mt-2">Taxes incluses • Paiement unique</p>
+                  <span className="text-5xl font-bold">{t('pricing.main.price')}</span>
+                  <p className="text-white/80 mt-2">{t('pricing.main.subtitle')}</p>
                 </div>
                 
                 <div className="space-y-3 mb-8">
@@ -83,7 +85,7 @@ const Pricing: React.FC = () => {
                   className="btn-coral w-full text-lg py-4 flex items-center justify-center space-x-2"
                 >
                   <Calendar className="w-5 h-5" />
-                  <span>Réserver maintenant</span>
+                  <span>{t('pricing.main.cta')}</span>
                 </button>
               </div>
             </div>
@@ -96,10 +98,10 @@ const Pricing: React.FC = () => {
         <div className="container-max">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Options de paiement
+              {t('pricing.payment.title')}
             </h2>
             <p className="text-xl text-gray-600">
-              Plusieurs façons de payer pour votre confort
+              {t('pricing.payment.subtitle')}
             </p>
           </div>
 
@@ -108,12 +110,12 @@ const Pricing: React.FC = () => {
               <div className="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <CreditCard className="w-8 h-8 text-teal-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Cartes de crédit</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{t('pricing.cards.title')}</h3>
               <p className="text-gray-600 mb-4">
-                Visa, MasterCard, American Express acceptées
+                {t('pricing.cards.desc')}
               </p>
               <div className="text-sm text-gray-500">
-                Paiement sécurisé • Reçu immédiat
+                {t('language') === 'fr' ? 'Paiement sécurisé • Reçu immédiat' : 'Secure payment • Immediate receipt'}
               </div>
             </div>
 
@@ -121,12 +123,12 @@ const Pricing: React.FC = () => {
               <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Calculator className="w-8 h-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Crédit d'impôt</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{t('pricing.tax.title')}</h3>
               <p className="text-gray-600 mb-4">
-                Déductible comme frais médicaux au Québec et Canada
+                {t('pricing.tax.desc')}
               </p>
               <div className="text-sm text-gray-500">
-                Jusqu'à 30% de remboursement possible
+                {t('language') === 'fr' ? 'Jusqu\'à 30% de remboursement possible' : 'Up to 30% reimbursement possible'}
               </div>
             </div>
 
@@ -134,12 +136,12 @@ const Pricing: React.FC = () => {
               <div className="w-16 h-16 bg-coral-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-8 h-8 text-coral-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Assurance privée</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{t('pricing.insurance.title')}</h3>
               <p className="text-gray-600 mb-4">
-                Certaines assurances couvrent partiellement
+                {t('pricing.insurance.desc')}
               </p>
               <div className="text-sm text-gray-500">
-                Vérifiez avec votre assureur
+                {t('language') === 'fr' ? 'Vérifiez avec votre assureur' : 'Check with your insurer'}
               </div>
             </div>
           </div>
@@ -151,10 +153,10 @@ const Pricing: React.FC = () => {
         <div className="container-max">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Comparaison des coûts contraceptifs
+              {t('pricing.comparison.title')}
             </h2>
             <p className="text-xl text-gray-600">
-              La vasectomie: l'investissement le plus rentable à long terme
+              {t('pricing.comparison.subtitle')}
             </p>
           </div>
 
@@ -165,27 +167,27 @@ const Pricing: React.FC = () => {
                   <thead className="bg-teal-50">
                     <tr>
                       <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
-                        Méthode contraceptive
+                        {t('language') === 'fr' ? 'Méthode contraceptive' : 'Contraceptive method'}
                       </th>
                       <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
-                        Coût mensuel
+                        {t('language') === 'fr' ? 'Coût mensuel' : 'Monthly cost'}
                       </th>
                       <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
-                        Coût annuel
+                        {t('language') === 'fr' ? 'Coût annuel' : 'Annual cost'}
                       </th>
                       <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">
-                        Coût sur 10 ans
+                        {t('language') === 'fr' ? 'Coût sur 10 ans' : '10-year cost'}
                       </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {comparisons.map((item, index) => (
-                      <tr key={index} className={item.method === 'Vasectomie' ? 'bg-teal-50' : ''}>
+                      <tr key={index} className={item.method.includes('Vasectomy') || item.method.includes('Vasectomie') ? 'bg-teal-50' : ''}>
                         <td className="px-6 py-4 text-sm font-medium text-gray-900">
                           {item.method}
-                          {item.method === 'Vasectomie' && (
+                          {(item.method.includes('Vasectomy') || item.method.includes('Vasectomie')) && (
                             <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800">
-                              Recommandé
+                              {t('language') === 'fr' ? 'Recommandé' : 'Recommended'}
                             </span>
                           )}
                         </td>
@@ -196,7 +198,7 @@ const Pricing: React.FC = () => {
                           {item.yearly > 0 ? `${item.yearly}$` : '-'}
                         </td>
                         <td className="px-6 py-4 text-sm font-semibold text-center">
-                          <span className={item.method === 'Vasectomie' ? 'text-teal-600' : 'text-gray-900'}>
+                          <span className={(item.method.includes('Vasectomy') || item.method.includes('Vasectomie')) ? 'text-teal-600' : 'text-gray-900'}>
                             {item.total10years}$
                           </span>
                         </td>
@@ -211,7 +213,10 @@ const Pricing: React.FC = () => {
               <div className="inline-flex items-center space-x-2 bg-teal-100 text-teal-800 px-6 py-3 rounded-lg">
                 <TrendingUp className="w-5 h-5" />
                 <span className="font-semibold">
-                  Économies potentielles: jusqu'à 2,360$ sur 10 ans
+                  {t('language') === 'fr' 
+                    ? 'Économies potentielles: jusqu\'à 2,360$ sur 10 ans'
+                    : 'Potential savings: up to $2,360 over 10 years'
+                  }
                 </span>
               </div>
             </div>
@@ -223,10 +228,10 @@ const Pricing: React.FC = () => {
       <section className="section-padding bg-gradient-to-r from-teal-600 to-primary-600 text-white">
         <div className="container-max text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Prêt à faire le meilleur investissement contraceptif?
+            {t('pricing.cta.title')}
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Un seul paiement de 640$ pour une solution permanente et efficace
+            {t('pricing.cta.description')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -235,13 +240,15 @@ const Pricing: React.FC = () => {
               className="btn-coral text-lg px-8 py-4 inline-flex items-center space-x-2"
             >
               <Calendar className="w-5 h-5" />
-              <span>Réserver ma consultation</span>
+              <span>
+                {t('language') === 'fr' ? 'Réserver ma consultation' : 'Book my consultation'}
+              </span>
             </button>
             <a 
               href="tel:+14509992973"
               className="btn-secondary bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8 py-4"
             >
-              Poser une question
+              {t('language') === 'fr' ? 'Poser une question' : 'Ask a question'}
             </a>
           </div>
         </div>

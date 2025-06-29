@@ -56,9 +56,9 @@ const Home: React.FC = () => {
   ];
 
   const stats = [
-    { number: '10+', label: 'Années d\'expérience' },
-    { number: '2000+', label: 'Procédures réalisées' },
-    { number: '15', label: 'Minutes de procédure' },
+    { number: '10+', label: t('features.experience.title') },
+    { number: '2000+', label: t('testimonials.title') },
+    { number: '15', label: t('vasectomy.step3.desc') },
     { number: '99%', label: 'Taux de satisfaction' }
   ];
 
@@ -77,7 +77,7 @@ const Home: React.FC = () => {
             <div className="animate-on-scroll">
               <div className="inline-flex items-center space-x-2 bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Award className="w-4 h-4" />
-                <span>Expertise reconnue en vasectomie sans bistouri</span>
+                <span>{t('features.experience.desc')}</span>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
@@ -110,12 +110,12 @@ const Home: React.FC = () => {
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4 text-teal-600" />
                   <a href="tel:+14509992973" className="hover:text-teal-600 transition-colors duration-200 font-medium">
-                    (450) 999-2973
+                    {t('hero.phone')}
                   </a>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="w-4 h-4 text-teal-600" />
-                  <span>Rendez-vous sous 14 jours</span>
+                  <span>{t('features.appointment.desc')}</span>
                 </div>
               </div>
             </div>
@@ -128,8 +128,12 @@ const Home: React.FC = () => {
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg mb-4 mx-auto cursor-pointer hover:scale-105 transition-transform duration-300">
                       <Play className="w-8 h-8 text-teal-600 ml-1" />
                     </div>
-                    <p className="text-gray-700 font-medium">Regarder la vidéo explicative</p>
-                    <p className="text-sm text-gray-500">Technique sans bistouri en détail</p>
+                    <p className="text-gray-700 font-medium">
+                      {t('language') === 'fr' ? 'Regarder la vidéo explicative' : 'Watch explanatory video'}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      {t('language') === 'fr' ? 'Technique sans bistouri en détail' : 'No-scalpel technique in detail'}
+                    </p>
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 cursor-pointer" 
@@ -145,7 +149,9 @@ const Home: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-gray-900">2000+</p>
-                    <p className="text-sm text-gray-600">Patients satisfaits</p>
+                    <p className="text-sm text-gray-600">
+                      {t('language') === 'fr' ? 'Patients satisfaits' : 'Satisfied patients'}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -162,7 +168,10 @@ const Home: React.FC = () => {
               {t('features.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Une approche moderne et humaine de la vasectomie avec une expertise reconnue
+              {t('language') === 'fr' 
+                ? 'Une approche moderne et humaine de la vasectomie avec une expertise reconnue'
+                : 'A modern and humane approach to vasectomy with recognized expertise'
+              }
             </p>
           </div>
 
@@ -196,7 +205,9 @@ const Home: React.FC = () => {
                 <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-4">
                   <div className="text-center">
                     <p className="text-2xl font-bold text-teal-600">CMIQ</p>
-                    <p className="text-sm text-gray-600">Certifiée</p>
+                    <p className="text-sm text-gray-600">
+                      {t('language') === 'fr' ? 'Certifiée' : 'Certified'}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -205,7 +216,7 @@ const Home: React.FC = () => {
             <div className="animate-on-scroll">
               <div className="inline-flex items-center space-x-2 bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Award className="w-4 h-4" />
-                <span>Médecin spécialisée en vasectomie</span>
+                <span>{t('doctor.subtitle')}</span>
               </div>
               
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -230,7 +241,12 @@ const Home: React.FC = () => {
               </div>
               
               <Link to="/about" className="inline-flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium transition-colors duration-200">
-                <span>En savoir plus sur Dr Savard-Côté</span>
+                <span>
+                  {t('language') === 'fr' 
+                    ? 'En savoir plus sur Dr Savard-Côté' 
+                    : 'Learn more about Dr Savard-Côté'
+                  }
+                </span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -263,13 +279,16 @@ const Home: React.FC = () => {
               
               <div className="flex items-center space-x-2 text-white/90">
                 <Phone className="w-5 h-5" />
-                <span>(450) 999-2973</span>
+                <span>{t('hero.phone')}</span>
               </div>
             </div>
             
             <div className="mt-8 text-center">
               <p className="text-white/80 text-sm">
-                Réservation en ligne sécurisée • Rendez-vous disponibles rapidement
+                {t('language') === 'fr' 
+                  ? 'Réservation en ligne sécurisée • Rendez-vous disponibles rapidement'
+                  : 'Secure online booking • Appointments available quickly'
+                }
               </p>
             </div>
           </div>
