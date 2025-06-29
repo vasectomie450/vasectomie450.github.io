@@ -22,8 +22,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Dr Mélanie Savard-Côté - Vasectomie sans bistouri dans les Laurentides. 
-              Plus de 10 ans d'expérience avec la technique moderne et sécuritaire.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-teal-400 transition-colors duration-200">
@@ -69,35 +68,35 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold text-white">{t('footer.hours')}</h3>
             <div className="space-y-2 text-sm text-gray-300">
               <div className="flex justify-between">
-                <span>Lundi - Vendredi</span>
-                <span>8h00 - 17h00</span>
+                <span>{t('footer.hours.weekdays')}</span>
+                <span>{t('footer.hours.weekdays.time')}</span>
               </div>
               <div className="flex justify-between">
-                <span>Samedi</span>
-                <span>9h00 - 15h00</span>
+                <span>{t('footer.hours.saturday')}</span>
+                <span>{t('footer.hours.saturday.time')}</span>
               </div>
               <div className="flex justify-between">
-                <span>Dimanche</span>
-                <span>Fermé</span>
+                <span>{t('footer.hours.sunday')}</span>
+                <span>{t('footer.hours.closed')}</span>
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Liens rapides</h3>
+            <h3 className="text-lg font-semibold text-white">{t('footer.quick.links')}</h3>
             <div className="space-y-2">
               <Link to="/vasectomy" className="block text-sm text-gray-300 hover:text-teal-400 transition-colors duration-200">
-                Vasectomie sans bistouri
+                {t('footer.vasectomy.link')}
               </Link>
               <Link to="/pricing" className="block text-sm text-gray-300 hover:text-teal-400 transition-colors duration-200">
-                Prix et tarification
+                {t('footer.pricing.link')}
               </Link>
               <Link to="/faq" className="block text-sm text-gray-300 hover:text-teal-400 transition-colors duration-200">
-                Questions fréquentes
+                {t('footer.faq.link')}
               </Link>
-              <Link to="/contact" className="block text-sm text-gray-300 hover:text-teal-400 transition-colors duration-200">
-                Prendre rendez-vous
+              <Link to="/appointments" className="block text-sm text-gray-300 hover:text-teal-400 transition-colors duration-200">
+                {t('footer.appointment.link')}
               </Link>
             </div>
           </div>
@@ -114,7 +113,7 @@ const Footer: React.FC = () => {
                 {t('footer.privacy')}
               </Link>
               <Link to="/terms" className="text-sm text-gray-400 hover:text-teal-400 transition-colors duration-200">
-                Conditions d'utilisation
+                {t('footer.terms')}
               </Link>
             </div>
           </div>
