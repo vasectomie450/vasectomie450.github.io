@@ -56,6 +56,17 @@ const translations = {
     'cta.description': 'Contactez-nous dès aujourd\'hui pour planifier votre consultation',
     'cta.button': 'Prendre rendez-vous',
     'cta.phone': 'Ou appelez: (450) 999-2973',
+    'cta.booking.secure': 'Réservation en ligne sécurisée',
+    'cta.booking.available': 'Rendez-vous disponibles rapidement',
+    'cta.booking.info': 'Réservation en ligne sécurisée • Rendez-vous disponibles rapidement',
+    
+    // Home page specific
+    'home.video.watch': 'Regarder la vidéo explicative',
+    'home.video.technique': 'Technique sans bistouri en détail',
+    'home.patients.satisfied': 'Patients satisfaits',
+    'home.approach.modern': 'Une approche moderne et humaine de la vasectomie avec une expertise reconnue',
+    'home.doctor.learn.more': 'En savoir plus sur Dr Savard-Côté',
+    'home.certified': 'Certifiée',
     
     // Footer
     'footer.hours': 'Heures d\'ouverture',
@@ -261,6 +272,17 @@ const translations = {
     'cta.description': 'Contact us today to schedule your consultation',
     'cta.button': 'Book Appointment',
     'cta.phone': 'Or call: (450) 999-2973',
+    'cta.booking.secure': 'Secure online booking',
+    'cta.booking.available': 'Appointments available quickly',
+    'cta.booking.info': 'Secure online booking • Appointments available quickly',
+    
+    // Home page specific
+    'home.video.watch': 'Watch explanatory video',
+    'home.video.technique': 'No-scalpel technique in detail',
+    'home.patients.satisfied': 'Satisfied patients',
+    'home.approach.modern': 'A modern and humane approach to vasectomy with recognized expertise',
+    'home.doctor.learn.more': 'Learn more about Dr Savard-Côté',
+    'home.certified': 'Certified',
     
     // Footer
     'footer.hours': 'Opening Hours',

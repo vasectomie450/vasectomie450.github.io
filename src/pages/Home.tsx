@@ -129,10 +129,10 @@ const Home: React.FC = () => {
                       <Play className="w-8 h-8 text-teal-600 ml-1" />
                     </div>
                     <p className="text-gray-700 font-medium">
-                      {t('language') === 'fr' ? 'Regarder la vidéo explicative' : 'Watch explanatory video'}
+                      {t('home.video.watch')}
                     </p>
                     <p className="text-sm text-gray-500">
-                      {t('language') === 'fr' ? 'Technique sans bistouri en détail' : 'No-scalpel technique in detail'}
+                      {t('home.video.technique')}
                     </p>
                   </div>
                 </div>
@@ -150,7 +150,7 @@ const Home: React.FC = () => {
                   <div>
                     <p className="text-2xl font-bold text-gray-900">2000+</p>
                     <p className="text-sm text-gray-600">
-                      {t('language') === 'fr' ? 'Patients satisfaits' : 'Satisfied patients'}
+                      {t('home.patients.satisfied')}
                     </p>
                   </div>
                 </div>
@@ -168,10 +168,7 @@ const Home: React.FC = () => {
               {t('features.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('language') === 'fr' 
-                ? 'Une approche moderne et humaine de la vasectomie avec une expertise reconnue'
-                : 'A modern and humane approach to vasectomy with recognized expertise'
-              }
+              {t('home.approach.modern')}
             </p>
           </div>
 
@@ -206,7 +203,7 @@ const Home: React.FC = () => {
                   <div className="text-center">
                     <p className="text-2xl font-bold text-teal-600">CMIQ</p>
                     <p className="text-sm text-gray-600">
-                      {t('language') === 'fr' ? 'Certifiée' : 'Certified'}
+                      {t('home.certified')}
                     </p>
                   </div>
                 </div>
@@ -242,10 +239,7 @@ const Home: React.FC = () => {
               
               <Link to="/about" className="inline-flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium transition-colors duration-200">
                 <span>
-                  {t('language') === 'fr' 
-                    ? 'En savoir plus sur Dr Savard-Côté' 
-                    : 'Learn more about Dr Savard-Côté'
-                  }
+                  {t('home.doctor.learn.more')}
                 </span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -285,10 +279,7 @@ const Home: React.FC = () => {
             
             <div className="mt-8 text-center">
               <p className="text-white/80 text-sm">
-                {t('language') === 'fr' 
-                  ? 'Réservation en ligne sécurisée • Rendez-vous disponibles rapidement'
-                  : 'Secure online booking • Appointments available quickly'
-                }
+                {t('cta.booking.info')}
               </p>
             </div>
           </div>
