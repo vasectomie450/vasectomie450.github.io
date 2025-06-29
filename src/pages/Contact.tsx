@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
           </h1>
           <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
             Contactez-nous ou planifiez votre consultation de vasectomie sans bistouri. 
-            Rendez-vous disponibles rapidement.
+            Rendez-vous disponibles rapidement dans nos deux cliniques.
           </p>
         </div>
       </section>
@@ -197,126 +197,169 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Location & Hours */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Location */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Notre clinique
-              </h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <MapPin className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Adresse</h4>
-                    <p className="text-gray-600">
-                      Saint-Eustache, QC<br />
-                      Région des Laurentides
-                    </p>
+          {/* Clinics Locations */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+              Nos cliniques
+            </h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Main Clinic - Saint-Eustache */}
+              <div>
+                <div className="card mb-6">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-3 h-3 bg-teal-600 rounded-full"></div>
+                    <h4 className="text-xl font-bold text-gray-900">Clinique principale</h4>
+                  </div>
+                  
+                  <h5 className="text-lg font-semibold text-teal-600 mb-3">
+                    Cliniques Infirmières des Laurentides
+                  </h5>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <MapPin className="w-5 h-5 text-teal-600 mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="text-gray-900 font-medium">102 Rue Dubois</p>
+                        <p className="text-gray-600">Saint-Eustache, Quebec J7P 4W9</p>
+                        <p className="text-gray-600">Canada</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center space-x-3">
+                      <Phone className="w-5 h-5 text-teal-600 flex-shrink-0" />
+                      <a href="tel:+14509992973" className="text-teal-600 hover:text-teal-700 transition-colors duration-200">
+                        (450) 999-2973
+                      </a>
+                    </div>
+
+                    <div className="flex items-center space-x-3">
+                      <Clock className="w-5 h-5 text-teal-600 flex-shrink-0" />
+                      <div className="text-sm text-gray-600">
+                        <p>Lun-Ven: 8h00-17h00</p>
+                        <p>Sam: 9h00-15h00</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <Phone className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Téléphone</h4>
-                    <a href="tel:+14509992973" className="text-teal-600 hover:text-teal-700 transition-colors duration-200">
-                      (450) 999-2973
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <Mail className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                    <a href="mailto:info@vasectomie450.com" className="text-teal-600 hover:text-teal-700 transition-colors duration-200">
-                      info@vasectomie450.com
-                    </a>
-                  </div>
+                {/* Interactive Map for Saint-Eustache */}
+                <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.8234567890123!2d-73.9123456789!3d45.5654321098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a541c64b70d%3A0x654c9ec0a319d52d!2s102%20Rue%20Dubois%2C%20Saint-Eustache%2C%20QC%20J7P%204W9%2C%20Canada!5e0!3m2!1sen!2sca!4v1234567890123!5m2!1sen!2sca"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Cliniques Infirmières des Laurentides - Saint-Eustache"
+                  ></iframe>
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="mt-8 aspect-video bg-gray-200 rounded-lg overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-teal-100 to-primary-100 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-teal-600 mx-auto mb-2" />
-                    <p className="text-gray-700 font-medium">Carte interactive</p>
-                    <p className="text-sm text-gray-500">Saint-Eustache, Laurentides</p>
+              {/* Second Clinic - Huntingdon */}
+              <div>
+                <div className="card mb-6">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-3 h-3 bg-primary-600 rounded-full"></div>
+                    <h4 className="text-xl font-bold text-gray-900">Clinique secondaire</h4>
                   </div>
+                  
+                  <h5 className="text-lg font-semibold text-primary-600 mb-3">
+                    Complexe de Santé Huntingdon
+                  </h5>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <MapPin className="w-5 h-5 text-primary-600 mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="text-gray-900 font-medium">60 Rue F. Cleyn</p>
+                        <p className="text-gray-600">Huntingdon, Québec J0S 1H0</p>
+                        <p className="text-gray-600">Canada</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center space-x-3">
+                      <Phone className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                      <a href="tel:+14509992973" className="text-primary-600 hover:text-primary-700 transition-colors duration-200">
+                        (450) 999-2973
+                      </a>
+                    </div>
+
+                    <div className="flex items-center space-x-3">
+                      <Clock className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                      <div className="text-sm text-gray-600">
+                        <p>Lun-Ven: 8h00-17h00</p>
+                        <p>Sam: 9h00-15h00</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Interactive Map for Huntingdon */}
+                <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2801.1234567890123!2d-74.1654321098!3d45.0876543210!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc9876543210fed%3A0x123456789abcdef0!2s60%20Rue%20F.%20Cleyn%2C%20Huntingdon%2C%20QC%20J0S%201H0%2C%20Canada!5e0!3m2!1sen!2sca!4v1234567890123!5m2!1sen!2sca"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Complexe de Santé Huntingdon"
+                  ></iframe>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Hours & Info */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Heures d'ouverture
-              </h3>
-              
-              <div className="card">
-                <div className="flex items-center space-x-3 mb-6">
-                  <Clock className="w-6 h-6 text-teal-600" />
-                  <h4 className="text-xl font-semibold text-gray-900">Horaires</h4>
-                </div>
-                
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="font-medium text-gray-900">Lundi - Vendredi</span>
-                    <span className="text-gray-600">8h00 - 17h00</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="font-medium text-gray-900">Samedi</span>
-                    <span className="text-gray-600">9h00 - 15h00</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2">
-                    <span className="font-medium text-gray-900">Dimanche</span>
-                    <span className="text-gray-600">Fermé</span>
-                  </div>
-                </div>
-              </div>
+          {/* Additional Information */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Important Information */}
+            <div className="card">
+              <h4 className="text-xl font-semibold text-gray-900 mb-4">
+                Informations importantes
+              </h4>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start space-x-2">
+                  <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Rendez-vous disponibles sous 14 jours</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Aucune référence médicale requise</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Consultation et procédure le même jour possible</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Stationnement gratuit disponible dans les deux cliniques</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Services disponibles dans les deux emplacements</span>
+                </li>
+              </ul>
+            </div>
 
-              <div className="card mt-6">
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">
-                  Informations importantes
-                </h4>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start space-x-2">
-                    <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Rendez-vous disponibles sous 14 jours</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Aucune référence médicale requise</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Consultation et procédure le même jour possible</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Stationnement gratuit disponible</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="card mt-6 bg-teal-50 border-teal-200">
-                <h4 className="text-xl font-semibold text-teal-900 mb-3">
-                  Urgences post-opératoires
-                </h4>
-                <p className="text-teal-800 mb-3">
-                  Ligne d'urgence 24h/24 pour les patients opérés
-                </p>
-                <a 
-                  href="tel:+14509992973"
-                  className="btn-primary bg-teal-600 hover:bg-teal-700 inline-flex items-center space-x-2"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>Urgence: (450) 999-2973</span>
-                </a>
-              </div>
+            {/* Emergency Contact */}
+            <div className="card bg-teal-50 border-teal-200">
+              <h4 className="text-xl font-semibold text-teal-900 mb-3">
+                Urgences post-opératoires
+              </h4>
+              <p className="text-teal-800 mb-4">
+                Ligne d'urgence 24h/24 pour les patients opérés dans nos deux cliniques
+              </p>
+              <a 
+                href="tel:+14509992973"
+                className="btn-primary bg-teal-600 hover:bg-teal-700 inline-flex items-center space-x-2"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Urgence: (450) 999-2973</span>
+              </a>
             </div>
           </div>
         </div>
@@ -329,7 +372,7 @@ const Contact: React.FC = () => {
             Prêt à commencer?
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Commencez par compléter le questionnaire santé, puis réservez votre consultation
+            Commencez par compléter le questionnaire santé, puis réservez votre consultation dans la clinique de votre choix
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
