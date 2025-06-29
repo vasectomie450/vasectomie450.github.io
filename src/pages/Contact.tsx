@@ -212,9 +212,42 @@ const Contact: React.FC = () => {
                     <h4 className="text-xl font-bold text-gray-900">Clinique principale</h4>
                   </div>
                   
-                  <h5 className="text-lg font-semibold text-teal-600 mb-3">
+                  <h5 className="text-lg font-semibold text-teal-600 mb-4">
                     Cliniques Infirmières des Laurentides
                   </h5>
+
+                  {/* Clinic Images Gallery */}
+                  <div className="mb-6">
+                    {/* Exterior View */}
+                    <div className="mb-4">
+                      <img 
+                        src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/blob-a9c8d58.png"
+                        alt="Vue extérieure - Cliniques Infirmières des Laurentides"
+                        className="w-full h-48 object-cover rounded-lg shadow-md"
+                      />
+                      <p className="text-sm text-gray-600 mt-2 text-center">Vue extérieure de la clinique</p>
+                    </div>
+
+                    {/* Interior and Team Photos Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <img 
+                          src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/IMG_3069.jpg"
+                          alt="Vue intérieure - Cliniques Infirmières des Laurentides"
+                          className="w-full h-32 object-cover rounded-lg shadow-md"
+                        />
+                        <p className="text-sm text-gray-600 mt-2 text-center">Intérieur moderne</p>
+                      </div>
+                      <div>
+                        <img 
+                          src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/IMG_5428%201.JPEG"
+                          alt="Équipe médicale - Cliniques Infirmières des Laurentides"
+                          className="w-full h-32 object-cover object-top rounded-lg shadow-md"
+                        />
+                        <p className="text-sm text-gray-600 mt-2 text-center">Notre équipe</p>
+                      </div>
+                    </div>
+                  </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-start space-x-3">
@@ -266,9 +299,42 @@ const Contact: React.FC = () => {
                     <h4 className="text-xl font-bold text-gray-900">Clinique secondaire</h4>
                   </div>
                   
-                  <h5 className="text-lg font-semibold text-primary-600 mb-3">
+                  <h5 className="text-lg font-semibold text-primary-600 mb-4">
                     Complexe de Santé Huntingdon
                   </h5>
+
+                  {/* Clinic Images Gallery */}
+                  <div className="mb-6">
+                    {/* Exterior View */}
+                    <div className="mb-4">
+                      <img 
+                        src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/IMG_2474.jpg"
+                        alt="Vue extérieure - Complexe de Santé Huntingdon"
+                        className="w-full h-48 object-cover rounded-lg shadow-md"
+                      />
+                      <p className="text-sm text-gray-600 mt-2 text-center">Vue extérieure de la clinique</p>
+                    </div>
+
+                    {/* Reception and Room Photos Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <img 
+                          src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/huntingdon%20reception_1921.JPG"
+                          alt="Accueil - Complexe de Santé Huntingdon"
+                          className="w-full h-32 object-cover rounded-lg shadow-md"
+                        />
+                        <p className="text-sm text-gray-600 mt-2 text-center">Accueil chaleureux</p>
+                      </div>
+                      <div>
+                        <img 
+                          src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/bureau%20huntingdon_IMG_2889.jpg"
+                          alt="Salle de consultation - Complexe de Santé Huntingdon"
+                          className="w-full h-32 object-cover rounded-lg shadow-md"
+                        />
+                        <p className="text-sm text-gray-600 mt-2 text-center">Salle de consultation</p>
+                      </div>
+                    </div>
+                  </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-start space-x-3">
