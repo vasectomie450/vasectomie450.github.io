@@ -1,18 +1,20 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Contact: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-ivory-50 to-teal-50">
         <div className="container-max text-center">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            <span className="text-gradient">Nous contacter</span>
+            <span className="text-gradient">{t('contact.title')}</span>
           </h1>
           <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-            Contactez-nous pour toute question ou information supplémentaire. 
-            Notre équipe est là pour vous accompagner.
+            {t('contact.subtitle')}
           </p>
         </div>
       </section>
@@ -22,10 +24,10 @@ const Contact: React.FC = () => {
         <div className="container-max">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Comment nous joindre
+              {t('contact.methods.title')}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Plusieurs moyens pour nous contacter selon vos préférences
+              {t('contact.methods.subtitle')}
             </p>
           </div>
 
@@ -34,9 +36,9 @@ const Contact: React.FC = () => {
               <div className="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Phone className="w-8 h-8 text-teal-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Téléphone</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{t('contact.phone.title')}</h3>
               <p className="text-gray-600 mb-4">
-                Appelez-nous pour poser vos questions ou obtenir des informations
+                {t('contact.phone.desc')}
               </p>
               <a 
                 href="tel:+14509992973"
@@ -51,9 +53,9 @@ const Contact: React.FC = () => {
               <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-8 h-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Email</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{t('contact.email.title')}</h3>
               <p className="text-gray-600 mb-4">
-                Écrivez-nous pour toute demande d'information
+                {t('contact.email.desc')}
               </p>
               <a 
                 href="mailto:info@vasectomie450.com"
@@ -72,10 +74,10 @@ const Contact: React.FC = () => {
         <div className="container-max">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Nos cliniques
+              {t('contact.clinics.title')}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Deux emplacements pour mieux vous servir
+              {t('contact.clinics.subtitle')}
             </p>
           </div>
           
@@ -85,11 +87,11 @@ const Contact: React.FC = () => {
               <div className="card mb-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-3 h-3 bg-teal-600 rounded-full"></div>
-                  <h4 className="text-xl font-bold text-gray-900">Clinique principale</h4>
+                  <h4 className="text-xl font-bold text-gray-900">{t('contact.main.clinic')}</h4>
                 </div>
                 
                 <h5 className="text-lg font-semibold text-teal-600 mb-4">
-                  Cliniques Infirmières des Laurentides
+                  {t('contact.main.clinic.name')}
                 </h5>
 
                 {/* Clinic Images Gallery */}
@@ -98,10 +100,10 @@ const Contact: React.FC = () => {
                   <div className="mb-4">
                     <img 
                       src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/blob-a9c8d58.png"
-                      alt="Vue extérieure - Cliniques Infirmières des Laurentides"
+                      alt={t('contact.main.exterior.alt')}
                       className="w-full h-48 object-cover rounded-lg shadow-md"
                     />
-                    <p className="text-sm text-gray-600 mt-2 text-center">Vue extérieure de la clinique</p>
+                    <p className="text-sm text-gray-600 mt-2 text-center">{t('contact.main.exterior.caption')}</p>
                   </div>
 
                   {/* Interior and Team Photos Grid */}
@@ -109,18 +111,18 @@ const Contact: React.FC = () => {
                     <div>
                       <img 
                         src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/IMG_3069.jpg"
-                        alt="Vue intérieure - Cliniques Infirmières des Laurentides"
+                        alt={t('contact.main.interior.alt')}
                         className="w-full h-32 object-cover rounded-lg shadow-md"
                       />
-                      <p className="text-sm text-gray-600 mt-2 text-center">Intérieur moderne</p>
+                      <p className="text-sm text-gray-600 mt-2 text-center">{t('contact.main.interior.caption')}</p>
                     </div>
                     <div>
                       <img 
                         src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/IMG_5428%201.JPEG"
-                        alt="Équipe médicale - Cliniques Infirmières des Laurentides"
+                        alt={t('contact.main.team.alt')}
                         className="w-full h-32 object-cover object-top rounded-lg shadow-md"
                       />
-                      <p className="text-sm text-gray-600 mt-2 text-center">Notre équipe</p>
+                      <p className="text-sm text-gray-600 mt-2 text-center">{t('contact.main.team.caption')}</p>
                     </div>
                   </div>
                 </div>
@@ -145,8 +147,8 @@ const Contact: React.FC = () => {
                   <div className="flex items-center space-x-3">
                     <Clock className="w-5 h-5 text-teal-600 flex-shrink-0" />
                     <div className="text-sm text-gray-600">
-                      <p>Lun-Ven: 8h00-17h00</p>
-                      <p>Sam: 9h00-15h00</p>
+                      <p>{t('contact.hours.weekdays')}</p>
+                      <p>{t('contact.hours.saturday')}</p>
                     </div>
                   </div>
                 </div>
@@ -162,7 +164,7 @@ const Contact: React.FC = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Cliniques Infirmières des Laurentides - Saint-Eustache"
+                  title={t('contact.main.map.title')}
                 ></iframe>
               </div>
             </div>
@@ -172,11 +174,11 @@ const Contact: React.FC = () => {
               <div className="card mb-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-3 h-3 bg-primary-600 rounded-full"></div>
-                  <h4 className="text-xl font-bold text-gray-900">Clinique secondaire</h4>
+                  <h4 className="text-xl font-bold text-gray-900">{t('contact.secondary.clinic')}</h4>
                 </div>
                 
                 <h5 className="text-lg font-semibold text-primary-600 mb-4">
-                  Complexe de Santé Huntingdon
+                  {t('contact.secondary.clinic.name')}
                 </h5>
 
                 {/* Clinic Images Gallery */}
@@ -185,10 +187,10 @@ const Contact: React.FC = () => {
                   <div className="mb-4">
                     <img 
                       src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/IMG_2474.jpg"
-                      alt="Vue extérieure - Complexe de Santé Huntingdon"
+                      alt={t('contact.secondary.exterior.alt')}
                       className="w-full h-48 object-cover rounded-lg shadow-md"
                     />
-                    <p className="text-sm text-gray-600 mt-2 text-center">Vue extérieure de la clinique</p>
+                    <p className="text-sm text-gray-600 mt-2 text-center">{t('contact.secondary.exterior.caption')}</p>
                   </div>
 
                   {/* Reception and Room Photos Grid */}
@@ -196,18 +198,18 @@ const Contact: React.FC = () => {
                     <div>
                       <img 
                         src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/huntingdon%20reception_1921.JPG"
-                        alt="Accueil - Complexe de Santé Huntingdon"
+                        alt={t('contact.secondary.reception.alt')}
                         className="w-full h-32 object-cover rounded-lg shadow-md"
                       />
-                      <p className="text-sm text-gray-600 mt-2 text-center">Accueil chaleureux</p>
+                      <p className="text-sm text-gray-600 mt-2 text-center">{t('contact.secondary.reception.caption')}</p>
                     </div>
                     <div>
                       <img 
                         src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/bureau%20huntingdon_IMG_2889.jpg"
-                        alt="Salle de consultation - Complexe de Santé Huntingdon"
+                        alt={t('contact.secondary.room.alt')}
                         className="w-full h-32 object-cover rounded-lg shadow-md"
                       />
-                      <p className="text-sm text-gray-600 mt-2 text-center">Salle de consultation</p>
+                      <p className="text-sm text-gray-600 mt-2 text-center">{t('contact.secondary.room.caption')}</p>
                     </div>
                   </div>
                 </div>
@@ -232,8 +234,8 @@ const Contact: React.FC = () => {
                   <div className="flex items-center space-x-3">
                     <Clock className="w-5 h-5 text-primary-600 flex-shrink-0" />
                     <div className="text-sm text-gray-600">
-                      <p>Lun-Ven: 8h00-17h00</p>
-                      <p>Sam: 9h00-15h00</p>
+                      <p>{t('contact.hours.weekdays')}</p>
+                      <p>{t('contact.hours.saturday')}</p>
                     </div>
                   </div>
                 </div>
@@ -249,7 +251,7 @@ const Contact: React.FC = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Complexe de Santé Huntingdon"
+                  title={t('contact.secondary.map.title')}
                 ></iframe>
               </div>
             </div>
@@ -264,13 +266,13 @@ const Contact: React.FC = () => {
             {/* Contact Information */}
             <div className="card">
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Informations de contact
+                {t('contact.info.title')}
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-teal-600 flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-gray-900">Téléphone principal</p>
+                    <p className="font-medium text-gray-900">{t('contact.info.phone.main')}</p>
                     <a href="tel:+14509992973" className="text-teal-600 hover:text-teal-700">
                       (450) 999-2973
                     </a>
@@ -280,7 +282,7 @@ const Contact: React.FC = () => {
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-primary-600 flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-gray-900">Email</p>
+                    <p className="font-medium text-gray-900">{t('contact.email.title')}</p>
                     <a href="mailto:info@vasectomie450.com" className="text-primary-600 hover:text-primary-700">
                       info@vasectomie450.com
                     </a>
@@ -290,11 +292,11 @@ const Contact: React.FC = () => {
                 <div className="flex items-start space-x-3">
                   <Clock className="w-5 h-5 text-gray-600 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-gray-900 mb-1">Heures d'ouverture</p>
+                    <p className="font-medium text-gray-900 mb-1">{t('contact.info.hours.title')}</p>
                     <div className="text-sm text-gray-600 space-y-1">
-                      <p>Lundi - Vendredi: 8h00 - 17h00</p>
-                      <p>Samedi: 9h00 - 15h00</p>
-                      <p>Dimanche: Fermé</p>
+                      <p>{t('contact.hours.weekdays')}</p>
+                      <p>{t('contact.hours.saturday')}</p>
+                      <p>{t('contact.hours.sunday')}</p>
                     </div>
                   </div>
                 </div>
@@ -304,18 +306,17 @@ const Contact: React.FC = () => {
             {/* Emergency Contact */}
             <div className="card bg-teal-50 border-teal-200">
               <h3 className="text-2xl font-semibold text-teal-900 mb-4">
-                Urgences post-opératoires
+                {t('contact.emergency.title')}
               </h3>
               <p className="text-teal-800 mb-6">
-                Ligne d'urgence 24h/24 pour les patients opérés dans nos deux cliniques. 
-                N'hésitez pas à nous contacter si vous avez des préoccupations après votre intervention.
+                {t('contact.emergency.desc')}
               </p>
               <a 
                 href="tel:+14509992973"
                 className="btn-primary bg-teal-600 hover:bg-teal-700 inline-flex items-center space-x-2"
               >
                 <Phone className="w-4 h-4" />
-                <span>Urgence: (450) 999-2973</span>
+                <span>{t('contact.emergency.button')}</span>
               </a>
             </div>
           </div>
@@ -326,10 +327,10 @@ const Contact: React.FC = () => {
       <section className="section-padding bg-gradient-to-r from-teal-600 to-primary-600 text-white">
         <div className="container-max text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Prêt à nous contacter?
+            {t('contact.cta.title')}
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Notre équipe est disponible pour répondre à toutes vos questions sur la vasectomie sans bistouri
+            {t('contact.cta.description')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -338,14 +339,14 @@ const Contact: React.FC = () => {
               className="btn-coral text-lg px-8 py-4 inline-flex items-center space-x-2"
             >
               <Phone className="w-5 h-5" />
-              <span>Appeler maintenant</span>
+              <span>{t('contact.cta.call')}</span>
             </a>
             <a 
               href="mailto:info@vasectomie450.com"
               className="btn-secondary bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8 py-4 inline-flex items-center space-x-2"
             >
               <Mail className="w-5 h-5" />
-              <span>Envoyer un email</span>
+              <span>{t('contact.cta.email')}</span>
             </a>
           </div>
         </div>
