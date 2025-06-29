@@ -62,6 +62,10 @@ const Home: React.FC = () => {
     { number: '99%', label: 'Taux de satisfaction' }
   ];
 
+  const handleBookingClick = () => {
+    window.open('https://secure.medexa.com/onlineAppointmentInformation?APIKey=4464897914164F578AB5C6131D74ADF3&flowColor=1a1d1e&backgroundColor=9ecbd8', '_blank');
+  };
+
   return (
     <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
@@ -73,7 +77,7 @@ const Home: React.FC = () => {
             <div className="animate-on-scroll">
               <div className="inline-flex items-center space-x-2 bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Award className="w-4 h-4" />
-                <span>Seule femme médecin vasectomiste dans la région</span>
+                <span>Expertise reconnue en vasectomie sans bistouri</span>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
@@ -89,10 +93,13 @@ const Home: React.FC = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link to="/contact" className="btn-primary text-lg px-8 py-4 flex items-center justify-center space-x-2">
+                <button 
+                  onClick={handleBookingClick}
+                  className="btn-primary text-lg px-8 py-4 flex items-center justify-center space-x-2"
+                >
                   <Calendar className="w-5 h-5" />
                   <span>{t('hero.cta.primary')}</span>
-                </Link>
+                </button>
                 <Link to="/vasectomy" className="btn-secondary text-lg px-8 py-4 flex items-center justify-center space-x-2">
                   <span>{t('hero.cta.secondary')}</span>
                   <ArrowRight className="w-5 h-5" />
@@ -102,8 +109,8 @@ const Home: React.FC = () => {
               <div className="flex items-center space-x-6 text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4 text-teal-600" />
-                  <a href="tel:+14501234567" className="hover:text-teal-600 transition-colors duration-200 font-medium">
-                    {t('hero.phone')}
+                  <a href="tel:+14509992973" className="hover:text-teal-600 transition-colors duration-200 font-medium">
+                    (450) 999-2973
                   </a>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -198,7 +205,7 @@ const Home: React.FC = () => {
             <div className="animate-on-scroll">
               <div className="inline-flex items-center space-x-2 bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Award className="w-4 h-4" />
-                <span>Expertise unique dans la région</span>
+                <span>Médecin spécialisée en vasectomie</span>
               </div>
               
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -246,20 +253,23 @@ const Home: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link to="/contact" className="btn-coral text-lg px-8 py-4 flex items-center space-x-2">
+              <button 
+                onClick={handleBookingClick}
+                className="btn-coral text-lg px-8 py-4 flex items-center space-x-2"
+              >
                 <Calendar className="w-5 h-5" />
                 <span>{t('cta.button')}</span>
-              </Link>
+              </button>
               
               <div className="flex items-center space-x-2 text-white/90">
                 <Phone className="w-5 h-5" />
-                <span>{t('cta.phone')}</span>
+                <span>(450) 999-2973</span>
               </div>
             </div>
             
             <div className="mt-8 text-center">
               <p className="text-white/80 text-sm">
-                • TODO: Add Medexa booking integration here •
+                Réservation en ligne sécurisée • Rendez-vous disponibles rapidement
               </p>
             </div>
           </div>

@@ -1,72 +1,199 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock, Calendar, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Calendar, FileText, CheckCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  const handleBookingClick = () => {
+    window.open('https://secure.medexa.com/onlineAppointmentInformation?APIKey=4464897914164F578AB5C6131D74ADF3&flowColor=1a1d1e&backgroundColor=9ecbd8', '_blank');
+  };
+
+  const handleQuestionnaireClick = () => {
+    window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=yCbXlj9FSkOcHPldj5OVDTYNIErxoQZLs47MsHGcCS1UQUhNWkYyRVNVVzZQUU1ITjZOV01CVjhNSC4u', '_blank');
+  };
+
   return (
     <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-ivory-50 to-teal-50">
         <div className="container-max text-center">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            <span className="text-gradient">Prendre rendez-vous</span>
+            <span className="text-gradient">Contact & Rendez-vous</span>
           </h1>
           <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-            Contactez-nous pour planifier votre consultation de vasectomie sans bistouri. 
+            Contactez-nous ou planifiez votre consultation de vasectomie sans bistouri. 
             Rendez-vous disponibles rapidement.
           </p>
         </div>
       </section>
 
-      {/* Contact Methods */}
+      {/* Rendez-vous Section */}
       <section className="section-padding bg-white">
         <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Prendre rendez-vous
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Suivez ces étapes simples pour planifier votre consultation et procédure
+            </p>
+          </div>
+
+          {/* Process Steps */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {/* Step 1: Health Questionnaire */}
+            <div className="card relative">
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                1
+              </div>
+              <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <FileText className="w-8 h-8 text-primary-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                Compléter le Questionnaire Santé
+              </h3>
+              <p className="text-gray-600 mb-4 text-center">
+                Questionnaire médical obligatoire (15 minutes)
+              </p>
+              <button 
+                onClick={handleQuestionnaireClick}
+                className="btn-primary w-full inline-flex items-center justify-center space-x-2"
+              >
+                <FileText className="w-4 h-4" />
+                <span>Commencer le questionnaire</span>
+              </button>
+              
+              <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                  <div className="text-sm text-amber-800">
+                    <p className="font-medium mb-1">Important:</p>
+                    <p>Ce questionnaire doit idéalement être complété avant la prise de rendez-vous pour permettre une consultation et vasectomie en une seule visite.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 2: Online Booking */}
+            <div className="card relative">
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                2
+              </div>
+              <div className="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Calendar className="w-8 h-8 text-teal-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                Réservation en ligne
+              </h3>
+              <p className="text-gray-600 mb-4 text-center">
+                Réservez votre consultation directement en ligne 24h/24
+              </p>
+              <button 
+                onClick={handleBookingClick}
+                className="btn-primary bg-teal-600 hover:bg-teal-700 w-full inline-flex items-center justify-center space-x-2"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Réserver maintenant</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Appointment Options */}
+          <div className="card bg-gradient-to-r from-teal-50 to-primary-50 border-teal-200">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+              Options de rendez-vous
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">
+                  Consultation + Vasectomie (même visite)
+                </h4>
+                <p className="text-gray-600 mb-4">
+                  Après avoir complété le questionnaire santé, vous pouvez avoir votre consultation et procédure le même jour.
+                </p>
+                <div className="flex items-center space-x-2 text-teal-600">
+                  <CheckCircle className="w-4 h-4" />
+                  <span className="text-sm font-medium">Questionnaire santé requis</span>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">
+                  Consultation virtuelle
+                </h4>
+                <p className="text-gray-600 mb-4">
+                  Rencontrez le médecin virtuellement pour discuter de la procédure avant de planifier l'intervention.
+                </p>
+                <div className="flex items-center space-x-2 text-primary-600">
+                  <CheckCircle className="w-4 h-4" />
+                  <span className="text-sm font-medium">Flexible et pratique</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Alternative Option */}
+          <div className="card mt-8 bg-amber-50 border-amber-200">
+            <h3 className="text-xl font-semibold text-amber-900 mb-3">
+              Questionnaire sur place
+            </h3>
+            <p className="text-amber-800 mb-3">
+              Si vous ne pouvez pas compléter le questionnaire en ligne, il est possible de le faire sur place lors d'une visite de consultation.
+            </p>
+            <div className="flex items-start space-x-2">
+              <div className="w-2 h-2 bg-amber-600 rounded-full mt-2 flex-shrink-0"></div>
+              <p className="text-amber-800 text-sm">
+                <strong>Note importante:</strong> Dans ce cas, la vasectomie pourrait ne pas avoir lieu le jour même.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Nous contacter
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Pour toute question ou information supplémentaire
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="card text-center">
               <div className="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Phone className="w-8 h-8 text-teal-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Téléphone</h3>
               <p className="text-gray-600 mb-4">
-                Appelez-nous pour prendre rendez-vous ou poser vos questions
+                Appelez-nous pour poser vos questions ou obtenir des informations
               </p>
               <a 
-                href="tel:+14501234567"
+                href="tel:+14509992973"
                 className="btn-primary inline-flex items-center space-x-2"
               >
                 <Phone className="w-4 h-4" />
-                <span>(450) 123-4567</span>
+                <span>(450) 999-2973</span>
               </a>
             </div>
 
             <div className="card text-center">
               <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Calendar className="w-8 h-8 text-primary-600" />
+                <Mail className="w-8 h-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Réservation en ligne</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Email</h3>
               <p className="text-gray-600 mb-4">
-                Réservez votre consultation directement en ligne 24h/24
+                Écrivez-nous pour toute demande d'information
               </p>
-              <button className="btn-primary inline-flex items-center space-x-2">
-                <Calendar className="w-4 h-4" />
-                <span>Réserver maintenant</span>
-              </button>
-              <p className="text-sm text-gray-500 mt-2">
-                • TODO: Add Medexa booking integration here •
-              </p>
-            </div>
-
-            <div className="card text-center">
-              <div className="w-16 h-16 bg-coral-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <MessageCircle className="w-8 h-8 text-coral-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Chat en direct</h3>
-              <p className="text-gray-600 mb-4">
-                Obtenez des réponses instantanées à vos questions
-              </p>
-              <button className="btn-secondary inline-flex items-center space-x-2">
-                <MessageCircle className="w-4 h-4" />
-                <span>Démarrer le chat</span>
-              </button>
+              <a 
+                href="mailto:info@vasectomie450.com"
+                className="btn-primary bg-primary-600 hover:bg-primary-700 inline-flex items-center space-x-2"
+              >
+                <Mail className="w-4 h-4" />
+                <span>info@vasectomie450.com</span>
+              </a>
             </div>
           </div>
 
@@ -74,15 +201,15 @@ const Contact: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Location */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Notre clinique
-              </h2>
+              </h3>
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <MapPin className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Adresse</h3>
+                    <h4 className="font-semibold text-gray-900 mb-1">Adresse</h4>
                     <p className="text-gray-600">
                       Saint-Eustache, QC<br />
                       Région des Laurentides
@@ -93,9 +220,9 @@ const Contact: React.FC = () => {
                 <div className="flex items-start space-x-4">
                   <Phone className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Téléphone</h3>
-                    <a href="tel:+14501234567" className="text-teal-600 hover:text-teal-700 transition-colors duration-200">
-                      (450) 123-4567
+                    <h4 className="font-semibold text-gray-900 mb-1">Téléphone</h4>
+                    <a href="tel:+14509992973" className="text-teal-600 hover:text-teal-700 transition-colors duration-200">
+                      (450) 999-2973
                     </a>
                   </div>
                 </div>
@@ -103,7 +230,7 @@ const Contact: React.FC = () => {
                 <div className="flex items-start space-x-4">
                   <Mail className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                    <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
                     <a href="mailto:info@vasectomie450.com" className="text-teal-600 hover:text-teal-700 transition-colors duration-200">
                       info@vasectomie450.com
                     </a>
@@ -125,14 +252,14 @@ const Contact: React.FC = () => {
 
             {/* Hours & Info */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Heures d'ouverture
-              </h2>
+              </h3>
               
               <div className="card">
                 <div className="flex items-center space-x-3 mb-6">
                   <Clock className="w-6 h-6 text-teal-600" />
-                  <h3 className="text-xl font-semibold text-gray-900">Horaires</h3>
+                  <h4 className="text-xl font-semibold text-gray-900">Horaires</h4>
                 </div>
                 
                 <div className="space-y-3">
@@ -152,9 +279,9 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="card mt-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h4 className="text-xl font-semibold text-gray-900 mb-4">
                   Informations importantes
-                </h3>
+                </h4>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-start space-x-2">
                     <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></span>
@@ -176,18 +303,18 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="card mt-6 bg-teal-50 border-teal-200">
-                <h3 className="text-xl font-semibold text-teal-900 mb-3">
+                <h4 className="text-xl font-semibold text-teal-900 mb-3">
                   Urgences post-opératoires
-                </h3>
+                </h4>
                 <p className="text-teal-800 mb-3">
                   Ligne d'urgence 24h/24 pour les patients opérés
                 </p>
                 <a 
-                  href="tel:+14501234567"
+                  href="tel:+14509992973"
                   className="btn-primary bg-teal-600 hover:bg-teal-700 inline-flex items-center space-x-2"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>Urgence: (450) 123-4567</span>
+                  <span>Urgence: (450) 999-2973</span>
                 </a>
               </div>
             </div>
@@ -199,24 +326,27 @@ const Contact: React.FC = () => {
       <section className="section-padding bg-gradient-to-r from-teal-600 to-primary-600 text-white">
         <div className="container-max text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Prêt à prendre rendez-vous?
+            Prêt à commencer?
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Contactez-nous dès aujourd'hui pour planifier votre consultation de vasectomie sans bistouri
+            Commencez par compléter le questionnaire santé, puis réservez votre consultation
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:+14501234567"
+            <button 
+              onClick={handleQuestionnaireClick}
               className="btn-coral text-lg px-8 py-4 inline-flex items-center space-x-2"
+            >
+              <FileText className="w-5 h-5" />
+              <span>Questionnaire santé</span>
+            </button>
+            <a 
+              href="tel:+14509992973"
+              className="btn-secondary bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8 py-4 inline-flex items-center space-x-2"
             >
               <Phone className="w-5 h-5" />
               <span>Appeler maintenant</span>
             </a>
-            <button className="btn-secondary bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8 py-4 inline-flex items-center space-x-2">
-              <Calendar className="w-5 h-5" />
-              <span>Réserver en ligne</span>
-            </button>
           </div>
         </div>
       </section>

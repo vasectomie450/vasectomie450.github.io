@@ -10,7 +10,6 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import FloatingCTA from './components/FloatingCTA';
-import LiveChat from './components/LiveChat';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
@@ -42,7 +41,6 @@ function App() {
         </main>
         <Footer />
         {showFloatingCTA && <FloatingCTA />}
-        <LiveChat />
       </div>
     </LanguageProvider>
   );

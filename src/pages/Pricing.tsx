@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, CreditCard, Calculator, TrendingUp } from 'lucide-react';
+import { CheckCircle, CreditCard, Calculator, TrendingUp, Calendar } from 'lucide-react';
 
 const Pricing: React.FC = () => {
   const included = [
@@ -38,6 +38,10 @@ const Pricing: React.FC = () => {
     }
   ];
 
+  const handleBookingClick = () => {
+    window.open('https://secure.medexa.com/onlineAppointmentInformation?APIKey=4464897914164F578AB5C6131D74ADF3&flowColor=1a1d1e&backgroundColor=9ecbd8', '_blank');
+  };
+
   return (
     <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
@@ -74,8 +78,12 @@ const Pricing: React.FC = () => {
                   ))}
                 </div>
                 
-                <button className="btn-coral w-full text-lg py-4">
-                  Réserver maintenant
+                <button 
+                  onClick={handleBookingClick}
+                  className="btn-coral w-full text-lg py-4 flex items-center justify-center space-x-2"
+                >
+                  <Calendar className="w-5 h-5" />
+                  <span>Réserver maintenant</span>
                 </button>
               </div>
             </div>
@@ -222,11 +230,15 @@ const Pricing: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-coral text-lg px-8 py-4">
-              Réserver ma consultation
+            <button 
+              onClick={handleBookingClick}
+              className="btn-coral text-lg px-8 py-4 inline-flex items-center space-x-2"
+            >
+              <Calendar className="w-5 h-5" />
+              <span>Réserver ma consultation</span>
             </button>
             <a 
-              href="tel:+14501234567"
+              href="tel:+14509992973"
               className="btn-secondary bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8 py-4"
             >
               Poser une question
