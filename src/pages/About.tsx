@@ -150,7 +150,7 @@ const About: React.FC = () => {
                 <img 
                   src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/2020-02-28-vasectomie%20phillipine-msc.jpg" 
                   alt="Dr Mélanie Savard-Côté"
-                  className="w-full h-80 object-cover object-center rounded-xl mb-6"
+                  className="w-full h-80 object-cover object-top rounded-xl mb-6"
                 />
                 <blockquote className="text-lg italic">
                   {t('language') === 'fr' 
