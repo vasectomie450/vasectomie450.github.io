@@ -146,11 +146,11 @@ const About: React.FC = () => {
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl p-8 text-white">
+              <div className="bg-gradient-to-br from-teal-400 to-primary-500 rounded-2xl p-8 text-white">
                 <img 
-                  src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                  alt={t('about.doctor.name')}
-                  className="w-full h-80 object-cover rounded-xl mb-6"
+                  src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/2020-02-28-vasectomie%20phillipine-msc.jpg" 
+                  alt="Dr Mélanie Savard-Côté"
+                  className="w-full h-80 object-cover object-center rounded-xl mb-6"
                 />
                 <blockquote className="text-lg italic">
                   {t('language') === 'fr' 

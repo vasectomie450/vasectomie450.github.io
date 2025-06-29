@@ -120,24 +120,31 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Hero Image/Video */}
+            {/* Hero Image - Dr. Mélanie Savard-Côté */}
             <div className="animate-on-scroll relative">
               <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
-                <div className="aspect-video bg-gradient-to-br from-teal-100 to-primary-100 flex items-center justify-center">
+                <div className="aspect-[4/3] bg-gradient-to-br from-teal-100 to-primary-100 overflow-hidden">
+                  <img 
+                    src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/DSCF0348%20(1).jpeg" 
+                    alt="Dr Mélanie Savard-Côté - Vasectomie sans bistouri"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+                
+                {/* Video overlay button */}
+                <div className="absolute inset-0 bg-black/20 hover:bg-black/30 transition-colors duration-300 cursor-pointer flex items-center justify-center" 
+                     onClick={() => window.open('https://www.youtube.com/watch?v=kBxIINrMWd0&t=2s', '_blank')}>
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg mb-4 mx-auto cursor-pointer hover:scale-105 transition-transform duration-300">
+                    <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg mb-4 mx-auto cursor-pointer hover:scale-105 transition-transform duration-300">
                       <Play className="w-8 h-8 text-teal-600 ml-1" />
                     </div>
-                    <p className="text-gray-700 font-medium">
+                    <p className="text-white font-medium text-lg drop-shadow-lg">
                       {t('home.video.watch')}
                     </p>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-white/90 text-sm drop-shadow-lg">
                       {t('home.video.technique')}
                     </p>
                   </div>
-                </div>
-                <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 cursor-pointer" 
-                     onClick={() => window.open('https://www.youtube.com/watch?v=kBxIINrMWd0&t=2s', '_blank')}>
                 </div>
               </div>
               
@@ -194,9 +201,9 @@ const Home: React.FC = () => {
               <div className="relative">
                 <div className="aspect-square bg-gradient-to-br from-teal-200 to-primary-200 rounded-2xl overflow-hidden">
                   <img 
-                    src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                    src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/2020-02-28-vasectomie%20phillipine-msc.jpg" 
                     alt="Dr Mélanie Savard-Côté"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-4">

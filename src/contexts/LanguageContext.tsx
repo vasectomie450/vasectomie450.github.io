@@ -140,7 +140,7 @@ const translations = {
     // About Page
     'about.title': 'À Propos de Vasectomie450',
     'about.subtitle': 'Votre clinique spécialisée en vasectomie sans bistouri, offrant des soins professionnels et personnalisés dans un environnement moderne et sécuritaire.',
-    'about.doctor.name': 'Dre. Marie-Claude Tremblay',
+    'about.doctor.name': 'Dr Mélanie Savard-Côté',
     'about.doctor.title': 'Médecin spécialisée en urologie',
     'about.doctor.description': 'Médecin spécialisée en urologie avec plus de 15 années d\'expérience dans les procédures de vasectomie sans bistouri. Diplômée de l\'Université de Montréal, elle s\'est perfectionnée dans les techniques les plus modernes et les moins invasives.',
     'about.technique.title': 'Technique Sans Bistouri',
@@ -356,7 +356,7 @@ const translations = {
     // About Page
     'about.title': 'About Vasectomy450',
     'about.subtitle': 'Your specialized no-scalpel vasectomy clinic, offering professional and personalized care in a modern and safe environment.',
-    'about.doctor.name': 'Dr. Marie-Claude Tremblay',
+    'about.doctor.name': 'Dr Mélanie Savard-Côté',
     'about.doctor.title': 'Urologist specialist physician',
     'about.doctor.description': 'Urologist specialist physician with over 15 years of experience in no-scalpel vasectomy procedures. Graduate of the University of Montreal, she has specialized in the most modern and least invasive techniques.',
     'about.technique.title': 'No-Scalpel Technique',
