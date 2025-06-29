@@ -25,7 +25,8 @@ const Header: React.FC = () => {
     { name: t('nav.faq'), href: '/faq' },
     { name: t('nav.blog'), href: '/blog' },
     { name: t('nav.about'), href: '/about' },
-    { name: t('nav.contact'), href: '/contact' },
+    { name: 'Rendez-vous', href: '/rendez-vous' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const toggleLanguage = () => {
@@ -50,7 +51,7 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -88,7 +89,7 @@ const Header: React.FC = () => {
 
             {/* CTA Button */}
             <Link
-              to="/contact"
+              to="/rendez-vous"
               className="hidden lg:flex items-center space-x-2 btn-primary text-sm"
             >
               <Calendar className="w-4 h-4" />
@@ -131,7 +132,7 @@ const Header: React.FC = () => {
               {/* Mobile CTA */}
               <div className="px-4 pt-4 border-t border-gray-200">
                 <Link
-                  to="/contact"
+                  to="/rendez-vous"
                   onClick={() => setIsMenuOpen(false)}
                   className="flex items-center justify-center space-x-2 btn-primary w-full"
                 >

@@ -8,6 +8,7 @@ import Pricing from './pages/Pricing';
 import FAQ from './pages/FAQ';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import RendezVous from './pages/RendezVous';
 import About from './pages/About';
 import FloatingCTA from './components/FloatingCTA';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -36,6 +37,7 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/rendez-vous" element={<RendezVous />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
