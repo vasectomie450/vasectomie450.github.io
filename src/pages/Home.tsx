@@ -66,6 +66,10 @@ const Home: React.FC = () => {
     window.open('https://secure.medexa.com/onlineAppointmentInformation?APIKey=4464897914164F578AB5C6131D74ADF3&flowColor=1a1d1e&backgroundColor=9ecbd8', '_blank');
   };
 
+  const handleVideoClick = () => {
+    window.open('https://www.youtube.com/watch?v=kBxIINrMWd0&t=1s', '_blank');
+  };
+
   return (
     <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
@@ -120,20 +124,20 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Hero Image - Dr. Mélanie Savard-Côté */}
+            {/* Hero Video Section */}
             <div className="animate-on-scroll relative">
               <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
                 <div className="aspect-[4/3] bg-gradient-to-br from-teal-100 to-primary-100 overflow-hidden">
                   <img 
-                    src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/DSCF0348%20(1).jpeg" 
-                    alt="Dr Mélanie Savard-Côté - Vasectomie sans bistouri"
+                    src="https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg" 
+                    alt="Vasectomie sans bistouri - Technique moderne"
                     className="w-full h-full object-cover object-center"
                   />
                 </div>
                 
                 {/* Video overlay button */}
                 <div className="absolute inset-0 bg-black/20 hover:bg-black/30 transition-colors duration-300 cursor-pointer flex items-center justify-center" 
-                     onClick={() => window.open('https://www.youtube.com/watch?v=kBxIINrMWd0&t=2s', '_blank')}>
+                     onClick={handleVideoClick}>
                   <div className="text-center">
                     <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg mb-4 mx-auto cursor-pointer hover:scale-105 transition-transform duration-300">
                       <Play className="w-8 h-8 text-teal-600 ml-1" />
@@ -193,7 +197,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* About Doctor Section */}
+      {/* About Doctor Section - Now with DSCF0348 image */}
       <section className="section-padding bg-gradient-to-r from-teal-50 to-primary-50">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -201,7 +205,7 @@ const Home: React.FC = () => {
               <div className="relative">
                 <div className="aspect-square bg-gradient-to-br from-teal-200 to-primary-200 rounded-2xl overflow-hidden">
                   <img 
-                    src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/2020-02-28-vasectomie%20phillipine-msc.jpg" 
+                    src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/DSCF0348%20(1).jpeg" 
                     alt="Dr Mélanie Savard-Côté"
                     className="w-full h-full object-cover object-center"
                   />
