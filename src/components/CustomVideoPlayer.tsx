@@ -13,26 +13,25 @@ const CustomVideoPlayer: React.FC = () => {
   return (
     <div className="video-container">
       <div className="video-wrapper">
-        {!showVideo ? (
-          <div className="video-thumbnail" onClick={handlePlayClick}>
-            <img
-              src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-              alt="Video thumbnail"
-              className="thumbnail-image"
-            />
-            <div className="play-button-overlay">
-              <div className="play-button">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
-            </div>
-            <div className="video-info">
-              <span className="video-label">{t('home.video.watch')}</span>
-              <span className="video-subtitle">{t('home.video.technique')}</span>
+        <div className="video-thumbnail" onClick={handlePlayClick}>
+          <img
+            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+            alt="Video thumbnail"
+            className="thumbnail-image"
+          />
+          <div className="play-button-overlay">
+            <div className="play-button">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
             </div>
           </div>
-        ) : (
+          <div className="video-info">
+            <span className="video-label">{t('home.video.watch')}</span>
+            <span className="video-subtitle">{t('home.video.technique')}</span>
+          </div>
+        </div>
+        {showVideo && (
           <div className="youtube-player">
             <iframe
               src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
