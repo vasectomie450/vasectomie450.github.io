@@ -125,8 +125,8 @@ const Home: React.FC = () => {
             <div className="animate-on-scroll relative">
               <CustomVideoPlayer />
               
-              {/* Floating Stats */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-4">
+              {/* Floating Stats - Moved to bottom right to avoid video overlap */}
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
                     <Users className="w-6 h-6 text-teal-600" />
