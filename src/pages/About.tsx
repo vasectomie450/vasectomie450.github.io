@@ -5,86 +5,61 @@ import { useLanguage } from '../contexts/LanguageContext';
 const About: React.FC = () => {
   const { t } = useLanguage();
 
-  const stats = t('language') === 'fr' ? [
-    { number: '550+', label: 'Procédures par année' },
-    { number: '15+', label: 'Années d\'expérience' },
-    { number: '20 min', label: 'Durée de la procédure' }
-  ] : [
-    { number: '550+', label: 'Procedures per year' },
-    { number: '15+', label: 'Years of experience' },
-    { number: '20 min', label: 'Procedure duration' }
+  const stats = [
+    { number: '550+', label: t('home.stats.procedures') },
+    { number: '15+', label: t('home.stats.experience') },
+    { number: '20 min', label: t('home.stats.duration') }
   ];
 
-  const values = t('language') === 'fr' ? [
+  const values = [
     {
       icon: Shield,
-      title: 'Sécurité',
-      description: 'Respect des plus hauts standards de sécurité et d\'hygiène pour chaque intervention.',
+      title: t('about.values.safety.title'),
+      description: t('about.values.safety.desc'),
       color: 'blue'
     },
     {
       icon: Heart,
-      title: 'Bienveillance',
-      description: 'Approche humaine et empathique, à l\'écoute des besoins de chaque patient.',
+      title: t('about.values.compassion.title'),
+      description: t('about.values.compassion.desc'),
       color: 'green'
     },
     {
       icon: Award,
-      title: 'Excellence',
-      description: 'Formation continue et utilisation des techniques les plus avancées du domaine.',
+      title: t('about.values.excellence.title'),
+      description: t('about.values.excellence.desc'),
       color: 'purple'
     },
     {
       icon: Clock,
-      title: 'Efficacité',
-      description: 'Procédures rapides et efficaces, avec un temps de récupération minimal.',
-      color: 'yellow'
-    }
-  ] : [
-    {
-      icon: Shield,
-      title: 'Safety',
-      description: 'Adherence to the highest safety and hygiene standards for every procedure.',
-      color: 'blue'
-    },
-    {
-      icon: Heart,
-      title: 'Compassion',
-      description: 'Human and empathetic approach, listening to each patient\'s needs.',
-      color: 'green'
-    },
-    {
-      icon: Award,
-      title: 'Excellence',
-      description: 'Continuous training and use of the most advanced techniques in the field.',
-      color: 'purple'
-    },
-    {
-      icon: Clock,
-      title: 'Efficiency',
-      description: 'Fast and efficient procedures with minimal recovery time.',
+      title: t('about.values.efficiency.title'),
+      description: t('about.values.efficiency.desc'),
       color: 'yellow'
     }
   ];
 
-  const steps = t('language') === 'fr' ? [
-    { number: '1', title: 'Consultation', description: 'Évaluation complète et discussion des attentes avec le patient.' },
-    { number: '2', title: 'Anesthésie', description: 'Anesthésie locale pour un confort optimal durant la procédure.' },
-    { number: '3', title: 'Procédure', description: 'Technique sans bistouri, rapide et précise, durée de 20 minutes.' }
-  ] : [
-    { number: '1', title: 'Consultation', description: 'Complete evaluation and discussion of expectations with the patient.' },
-    { number: '2', title: 'Anesthesia', description: 'Local anesthesia for optimal comfort during the procedure.' },
-    { number: '3', title: 'Procedure', description: 'No-scalpel technique, fast and precise, 20-minute duration.' }
+  const steps = [
+    { 
+      number: '1', 
+      title: t('about.steps.consultation.title'), 
+      description: t('about.steps.consultation.desc') 
+    },
+    { 
+      number: '2', 
+      title: t('about.steps.anesthesia.title'), 
+      description: t('about.steps.anesthesia.desc') 
+    },
+    { 
+      number: '3', 
+      title: t('about.steps.procedure.title'), 
+      description: t('about.steps.procedure.desc') 
+    }
   ];
 
-  const certifications = t('language') === 'fr' ? [
-    'Certifiée par le Collège des médecins du Québec',
-    'Approche bienveillante et personnalisée',
-    'Taux de satisfaction de 99%'
-  ] : [
-    'Certified by the College of Physicians of Quebec',
-    'Compassionate and personalized approach',
-    '99% satisfaction rate'
+  const certifications = [
+    t('about.certifications.cmq'),
+    t('about.certifications.approach'),
+    t('about.certifications.satisfaction')
   ];
 
   return (
@@ -153,10 +128,7 @@ const About: React.FC = () => {
                   className="w-full h-80 object-cover object-top rounded-xl mb-6"
                 />
                 <blockquote className="text-lg italic">
-                  {t('language') === 'fr' 
-                    ? '"Mon objectif est d\'offrir à chaque patient une expérience confortable et sécuritaire, avec des résultats optimaux."'
-                    : '"My goal is to provide each patient with a comfortable and safe experience, with optimal results."'
-                  }
+                  {t('about.doctor.description')}
                 </blockquote>
               </div>
             </div>
@@ -238,27 +210,24 @@ const About: React.FC = () => {
       <section className="section-padding bg-gradient-to-r from-teal-600 to-primary-600 text-white">
         <div className="container-max text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            {t('language') === 'fr' ? 'Prêt à nous rencontrer?' : 'Ready to meet us?'}
+            {t('about.cta.meet')}
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            {t('language') === 'fr' 
-              ? 'Découvrez pourquoi tant de patients nous font confiance pour leur vasectomie'
-              : 'Discover why so many patients trust us for their vasectomy'
-            }
+            {t('about.cta.trust')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="/rendez-vous"
+              href="/appointments"
               className="btn-coral text-lg px-8 py-4 inline-flex items-center space-x-2"
             >
-              <span>{t('language') === 'fr' ? 'Prendre rendez-vous' : 'Book appointment'}</span>
+              <span>{t('about.cta.appointment')}</span>
             </a>
             <a 
               href="/contact"
               className="btn-secondary bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8 py-4"
             >
-              {t('language') === 'fr' ? 'Nous contacter' : 'Contact us'}
+              {t('about.cta.contact')}
             </a>
           </div>
         </div>

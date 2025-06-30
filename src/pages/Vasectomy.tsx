@@ -6,12 +6,12 @@ const Vasectomy: React.FC = () => {
   const { t } = useLanguage();
 
   const benefits = [
-    t('language') === 'fr' ? 'Technique sans bistouri moins invasive' : 'Less invasive no-scalpel technique',
-    t('language') === 'fr' ? 'Procédure de 15 minutes seulement' : '15-minute procedure only',
-    t('language') === 'fr' ? 'Anesthésie locale uniquement' : 'Local anesthesia only',
-    t('language') === 'fr' ? 'Récupération rapide (2-3 jours)' : 'Fast recovery (2-3 days)',
-    t('language') === 'fr' ? 'Efficacité de 99.9%' : '99.9% effectiveness',
-    t('language') === 'fr' ? 'Aucune cicatrice visible' : 'No visible scarring'
+    t('vasectomy.benefits.scalpel'),
+    t('vasectomy.benefits.duration'),
+    t('vasectomy.benefits.anesthesia'),
+    t('vasectomy.benefits.recovery'),
+    t('vasectomy.benefits.effectiveness'),
+    t('vasectomy.benefits.scarring')
   ];
 
   const steps = [
@@ -39,22 +39,16 @@ const Vasectomy: React.FC = () => {
 
   const faqItems = [
     {
-      question: t('language') === 'fr' ? 'La vasectomie est-elle réversible?' : 'Is vasectomy reversible?',
-      answer: t('language') === 'fr' 
-        ? 'Bien que techniquement possible, la vasectomie doit être considérée comme permanente. Le taux de succès de la réversion varie et n\'est pas garanti.'
-        : 'Although technically possible, vasectomy should be considered permanent. The success rate of reversal varies and is not guaranteed.'
+      question: t('vasectomy.faq.reversible.question'),
+      answer: t('vasectomy.faq.reversible.answer')
     },
     {
-      question: t('language') === 'fr' ? 'Quand puis-je reprendre mes activités?' : 'When can I resume my activities?',
-      answer: t('language') === 'fr' 
-        ? 'Activités légères après 2-3 jours, travail de bureau après 3-5 jours, exercice intense après 2 semaines.'
-        : 'Light activities after 2-3 days, office work after 3-5 days, intense exercise after 2 weeks.'
+      question: t('vasectomy.faq.activities.question'),
+      answer: t('vasectomy.faq.activities.answer')
     },
     {
-      question: t('language') === 'fr' ? 'Y a-t-il des effets sur les hormones?' : 'Are there effects on hormones?',
-      answer: t('language') === 'fr' 
-        ? 'Non, la vasectomie n\'affecte pas la production d\'hormones masculines. Seuls les spermatozoïdes sont bloqués.'
-        : 'No, vasectomy does not affect male hormone production. Only sperm are blocked.'
+      question: t('vasectomy.faq.hormones.question'),
+      answer: t('vasectomy.faq.hormones.answer')
     }
   ];
 
@@ -85,7 +79,7 @@ const Vasectomy: React.FC = () => {
               <div className="aspect-video bg-gradient-to-br from-teal-100 to-primary-100 rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src="https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt={t('language') === 'fr' ? 'Technique vasectomie sans bistouri' : 'No-scalpel vasectomy technique'}
+                  alt={t('vasectomy.technique.title')}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -123,6 +117,15 @@ const Vasectomy: React.FC = () => {
       {/* Technique Details */}
       <section className="section-padding bg-gray-50">
         <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              {t('vasectomy.technique.title')}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {t('vasectomy.technique.subtitle')}
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="card text-center">
               <div className="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">

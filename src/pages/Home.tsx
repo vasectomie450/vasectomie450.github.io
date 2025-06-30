@@ -56,10 +56,10 @@ const Home: React.FC = () => {
   ];
 
   const stats = [
-    { number: '10+', label: t('features.experience.title') },
-    { number: '2000+', label: t('testimonials.title') },
-    { number: '15', label: t('vasectomy.step3.desc') },
-    { number: '99%', label: 'Taux de satisfaction' }
+    { number: '550+', label: t('home.stats.procedures') },
+    { number: '15+', label: t('home.stats.experience') },
+    { number: '15 min', label: t('home.stats.duration') },
+    { number: '99%', label: t('home.stats.satisfaction') }
   ];
 
   const handleBookingClick = () => {
@@ -130,7 +130,7 @@ const Home: React.FC = () => {
                 <div className="aspect-[4/3] bg-gradient-to-br from-teal-100 to-primary-100 overflow-hidden">
                   <img 
                     src="https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg" 
-                    alt="Vasectomie sans bistouri - Technique moderne"
+                    alt={t('home.video.technique')}
                     className="w-full h-full object-cover object-center"
                   />
                 </div>
@@ -197,7 +197,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* About Doctor Section - Now with DSCF0348 image */}
+      {/* About Doctor Section */}
       <section className="section-padding bg-gradient-to-r from-teal-50 to-primary-50">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
