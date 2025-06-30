@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Phone, CheckCircle, Clock, DollarSign, Award, Users, ArrowRight, Play } from 'lucide-react';
+import { Calendar, Phone, CheckCircle, Clock, DollarSign, Award, Users, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import GoogleReviews from '../components/GoogleReviews';
+import CustomVideoPlayer from '../components/CustomVideoPlayer';
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
@@ -66,10 +67,6 @@ const Home: React.FC = () => {
     window.open('https://secure.medexa.com/onlineAppointmentInformation?APIKey=4464897914164F578AB5C6131D74ADF3&flowColor=1a1d1e&backgroundColor=9ecbd8', '_blank');
   };
 
-  const handleVideoClick = () => {
-    window.open('https://www.youtube.com/watch?v=kBxIINrMWd0&t=1s', '_blank');
-  };
-
   return (
     <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
@@ -126,31 +123,7 @@ const Home: React.FC = () => {
 
             {/* Hero Video Section */}
             <div className="animate-on-scroll relative">
-              <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
-                <div className="aspect-[4/3] bg-gradient-to-br from-teal-100 to-primary-100 overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg" 
-                    alt={t('home.video.technique')}
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                
-                {/* Video overlay button */}
-                <div className="absolute inset-0 bg-black/20 hover:bg-black/30 transition-colors duration-300 cursor-pointer flex items-center justify-center" 
-                     onClick={handleVideoClick}>
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg mb-4 mx-auto cursor-pointer hover:scale-105 transition-transform duration-300">
-                      <Play className="w-8 h-8 text-teal-600 ml-1" />
-                    </div>
-                    <p className="text-white font-medium text-lg drop-shadow-lg">
-                      {t('home.video.watch')}
-                    </p>
-                    <p className="text-white/90 text-sm drop-shadow-lg">
-                      {t('home.video.technique')}
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <CustomVideoPlayer />
               
               {/* Floating Stats */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-4">
