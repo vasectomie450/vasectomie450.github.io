@@ -156,23 +156,6 @@ const GoogleReviews: React.FC = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             {t('testimonials.title')}
           </h2>
-          
-          {businessInfo && (
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="flex space-x-1">
-                {renderStars(5)}
-              </div>
-              <span className="text-lg font-semibold text-gray-900">
-                {businessInfo.rating}/5
-              </span>
-              <span className="text-gray-600">
-                • {businessInfo.totalReviews} avis Google
-              </span>
-              <span className="text-teal-600 text-sm">
-                {reviews.length} avis excellents (4.5★+)
-              </span>
-            </div>
-          )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -213,45 +196,6 @@ const GoogleReviews: React.FC = () => {
             </div>
           ))}
         </div>
-
-        <div className="text-center mt-8">
-          <a
-            href="https://www.google.com/search?q=vasectomie+450+avis"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium transition-colors duration-200"
-          >
-            <span>Voir tous les avis sur Google</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-        </div>
-
-        {/* Google Reviews Summary */}
-        {businessInfo && (
-          <div className="mt-12 bg-gradient-to-r from-teal-50 to-primary-50 rounded-xl p-6">
-            <div className="text-center">
-              <div className="flex items-center justify-center space-x-4 mb-4">
-                <div className="flex items-center space-x-2">
-                  <Star className="w-6 h-6 text-yellow-400 fill-current" />
-                  <span className="text-2xl font-bold text-gray-900">
-                    {businessInfo.rating}/5
-                  </span>
-                </div>
-                <div className="text-gray-600">
-                  Basé sur <strong>{businessInfo.totalReviews} avis</strong>
-                </div>
-                <div className="text-teal-600 font-medium">
-                  {reviews.length} avis excellents (4.5★+)
-                </div>
-              </div>
-              <p className="text-gray-700">
-                Nos patients apprécient notre approche professionnelle et nos résultats exceptionnels.
-              </p>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );
