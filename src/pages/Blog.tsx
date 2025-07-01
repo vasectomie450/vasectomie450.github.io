@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Blog: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const [selectedCategory, setSelectedCategory] = useState(language === 'fr' ? 'Tous' : 'All');
 
-  const blogPosts = t('language') === 'fr' ? [
+  const blogPosts = language === 'fr' ? [
     {
       id: 1,
       title: 'Vasectomie sans bistouri : Tout ce que vous devez savoir',
@@ -129,9 +130,18 @@ const Blog: React.FC = () => {
     }
   ];
 
-  const categories = t('language') === 'fr' 
+  const categories = language === 'fr' 
     ? ['Tous', 'Procédure', 'Récupération', 'Comparaison', 'Éducation', 'Consultation', 'Bien-être']
     : ['All', 'Procedure', 'Recovery', 'Comparison', 'Education', 'Consultation', 'Well-being'];
+
+  // Filter posts based on selected category
+  const filteredPosts = selectedCategory === 'Tous' || selectedCategory === 'All' 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === selectedCategory);
+
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category);
+  };
 
   return (
     <div className="pt-16 lg:pt-20">
@@ -151,11 +161,12 @@ const Blog: React.FC = () => {
       <section className="section-padding bg-white border-b border-gray-200">
         <div className="container-max">
           <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category, index) => (
+            {categories.map((category) => (
               <button
-                key={index}
+                key={category}
+                onClick={() => handleCategoryClick(category)}
                 className={`px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 ${
-                  index === 0
+                  selectedCategory === category
                     ? 'bg-teal-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-teal-100 hover:text-teal-700'
                 }`}
@@ -170,58 +181,69 @@ const Blog: React.FC = () => {
       {/* Blog Posts Grid */}
       <section className="section-padding bg-white">
         <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <article key={post.id} className="card group hover:shadow-xl transition-shadow duration-300">
-                <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden mb-6">
-                  <img 
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between text-sm text-gray-500">
-                    <span className="bg-teal-100 text-teal-800 px-3 py-1 rounded-full font-medium">
-                      {post.category}
-                    </span>
-                    <div className="flex items-center space-x-1">
-                      <Clock className="w-4 h-4" />
-                      <span>{post.readTime}</span>
-                    </div>
+          {filteredPosts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg">
+                {language === 'fr' 
+                  ? 'Aucun article trouvé dans cette catégorie.' 
+                  : 'No articles found in this category.'
+                }
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post) => (
+                <article key={post.id} className="card group hover:shadow-xl transition-shadow duration-300">
+                  <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden mb-6">
+                    <img 
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                   
-                  <h2 className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors duration-200">
-                    {post.title}
-                  </h2>
-                  
-                  <p className="text-gray-600 leading-relaxed">
-                    {post.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <div className="flex items-center space-x-3">
-                      <div className="flex items-center space-x-2 text-sm text-gray-500">
-                        <User className="w-4 h-4" />
-                        <span>{post.author}</span>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between text-sm text-gray-500">
+                      <span className="bg-teal-100 text-teal-800 px-3 py-1 rounded-full font-medium">
+                        {post.category}
+                      </span>
+                      <div className="flex items-center space-x-1">
+                        <Clock className="w-4 h-4" />
+                        <span>{post.readTime}</span>
                       </div>
                     </div>
                     
-                    <div className="flex items-center space-x-2 text-sm text-gray-500">
-                      <Calendar className="w-4 h-4" />
-                      <span>{post.date}</span>
+                    <h2 className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors duration-200">
+                      {post.title}
+                    </h2>
+                    
+                    <p className="text-gray-600 leading-relaxed">
+                      {post.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-2 text-sm text-gray-500">
+                          <User className="w-4 h-4" />
+                          <span>{post.author}</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center space-x-2 text-sm text-gray-500">
+                        <Calendar className="w-4 h-4" />
+                        <span>{post.date}</span>
+                      </div>
                     </div>
+                    
+                    <button className="inline-flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium transition-colors duration-200">
+                      <span>{language === 'fr' ? 'Lire l\'article' : 'Read article'}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
-                  
-                  <button className="inline-flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium transition-colors duration-200">
-                    <span>{t('language') === 'fr' ? 'Lire l\'article' : 'Read article'}</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
+                </article>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -229,10 +251,10 @@ const Blog: React.FC = () => {
       <section className="section-padding bg-gradient-to-r from-teal-600 to-primary-600 text-white">
         <div className="container-max text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            {t('language') === 'fr' ? 'Restez informé' : 'Stay informed'}
+            {language === 'fr' ? 'Restez informé' : 'Stay informed'}
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            {t('language') === 'fr' 
+            {language === 'fr' 
               ? 'Recevez nos derniers articles et conseils sur la santé masculine directement dans votre boîte email'
               : 'Receive our latest articles and men\'s health tips directly in your email inbox'
             }
@@ -242,15 +264,15 @@ const Blog: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <input
                 type="email"
-                placeholder={t('language') === 'fr' ? 'Votre adresse email' : 'Your email address'}
+                placeholder={language === 'fr' ? 'Votre adresse email' : 'Your email address'}
                 className="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-coral-500"
               />
               <button className="btn-coral px-6 py-3 whitespace-nowrap">
-                {t('language') === 'fr' ? 'S\'abonner' : 'Subscribe'}
+                {language === 'fr' ? 'S\'abonner' : 'Subscribe'}
               </button>
             </div>
             <p className="text-sm text-white/70 mt-3">
-              {t('language') === 'fr' 
+              {language === 'fr' 
                 ? 'Pas de spam, désabonnement facile à tout moment'
                 : 'No spam, easy unsubscribe at any time'
               }
