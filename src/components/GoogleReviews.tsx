@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Star, Quote } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
+// Declare Google Maps types
+declare global {
+  interface Window {
+    google: any;
+    initGoogleMaps: () => void;
+  }
+}
+
 interface Review {
   id: string;
   author: string;
@@ -27,85 +35,86 @@ const GoogleReviews: React.FC = () => {
   const { t } = useLanguage();
 
   useEffect(() => {
-    fetchGoogleReviews();
+    loadGoogleMapsAPI();
   }, []);
 
-  const fetchGoogleReviews = async () => {
+  const loadGoogleMapsAPI = () => {
+    // Check if Google Maps is already loaded
+    if (window.google?.maps) {
+      fetchGoogleReviews();
+      return;
+    }
+
+    // Create callback function
+    window.initGoogleMaps = () => {
+      fetchGoogleReviews();
+    };
+
+    // Load Google Maps JavaScript API
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyByyuoo6VdCdBV8HeVbBClTMOIszYaYMCk&libraries=places&callback=initGoogleMaps`;
+    script.async = true;
+    script.defer = true;
+    script.onerror = () => {
+      console.error('Failed to load Google Maps API');
+      setHasError(true);
+      setLoading(false);
+    };
+    document.head.appendChild(script);
+  };
+
+  const fetchGoogleReviews = () => {
     try {
       setLoading(true);
       setHasError(false);
 
       const placeId = 'ChIJT54XLeovyUwRfvEzDQoAEbE';
-      const apiKey = 'AIzaSyByyuoo6VdCdBV8HeVbBClTMOIszYaYMCk';
       
-      // Direct API call with JSONP to bypass CORS
-      const script = document.createElement('script');
-      const callbackName = `googleReviewsCallback_${Date.now()}`;
-      
-      // Create a promise that resolves when the JSONP callback is called
-      const jsonpPromise = new Promise((resolve, reject) => {
-        // Set up the callback
-        (window as any)[callbackName] = (data: any) => {
-          resolve(data);
-          // Clean up
-          document.head.removeChild(script);
-          delete (window as any)[callbackName];
-        };
+      // Create a PlacesService instance
+      const service = new window.google.maps.places.PlacesService(
+        document.createElement('div')
+      );
 
-        // Set up error handling
-        script.onerror = () => {
-          reject(new Error('Failed to load Google Places API'));
-          document.head.removeChild(script);
-          delete (window as any)[callbackName];
-        };
+      // Request place details
+      const request = {
+        placeId: placeId,
+        fields: ['name', 'rating', 'user_ratings_total', 'reviews']
+      };
 
-        // Set timeout
-        setTimeout(() => {
-          if ((window as any)[callbackName]) {
-            reject(new Error('Request timeout'));
-            document.head.removeChild(script);
-            delete (window as any)[callbackName];
-          }
-        }, 10000);
+      service.getDetails(request, (place: any, status: any) => {
+        if (status === window.google.maps.places.PlacesServiceStatus.OK && place) {
+          // Filter and format reviews (4.5+ stars only)
+          const filteredReviews = place.reviews
+            ?.filter((review: any) => review.rating >= 4.5)
+            ?.map((review: any) => ({
+              id: `google-${review.time}`,
+              author: review.author_name,
+              rating: review.rating,
+              text: review.text,
+              date: new Date(review.time * 1000).toISOString().split('T')[0],
+              avatar: review.profile_photo_url,
+              source: 'Google',
+              relativeTime: review.relative_time_description
+            })) ?? [];
+
+          // Set business info
+          setBusinessInfo({
+            name: place.name,
+            rating: place.rating,
+            totalReviews: place.user_ratings_total
+          });
+
+          setReviews(filteredReviews);
+        } else {
+          console.error('Places service failed:', status);
+          setHasError(true);
+        }
+        setLoading(false);
       });
-
-      // Make the JSONP request
-      script.src = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,reviews&key=${apiKey}&callback=${callbackName}`;
-      document.head.appendChild(script);
-
-      const data = await jsonpPromise as any;
-
-      if (data.status !== 'OK') {
-        throw new Error(`Google Places API error: ${data.status}`);
-      }
-
-      // Filter and format reviews (4.5+ stars only)
-      const filteredReviews = data.result.reviews
-        ?.filter((review: any) => review.rating >= 4.5)
-        ?.map((review: any) => ({
-          id: `google-${review.time}`,
-          author: review.author_name,
-          rating: review.rating,
-          text: review.text,
-          date: new Date(review.time * 1000).toISOString().split('T')[0],
-          avatar: review.profile_photo_url,
-          source: 'Google',
-          relativeTime: review.relative_time_description
-        })) || [];
-
-      // Set business info
-      setBusinessInfo({
-        name: data.result.name,
-        rating: data.result.rating,
-        totalReviews: data.result.user_ratings_total
-      });
-
-      setReviews(filteredReviews);
       
     } catch (error) {
       console.error('Error fetching Google reviews:', error);
       setHasError(true);
-    } finally {
       setLoading(false);
     }
   };
