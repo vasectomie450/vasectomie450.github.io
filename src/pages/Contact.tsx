@@ -147,8 +147,9 @@ const Contact: React.FC = () => {
                   <div className="flex items-center space-x-3">
                     <Clock className="w-5 h-5 text-teal-600 flex-shrink-0" />
                     <div className="text-sm text-gray-600">
-                      <p>{t('contact.hours.weekdays')}</p>
-                      <p>{t('contact.hours.saturday')}</p>
+                      <p>Lun - Ven: 8h30 - 16h30</p>
+                      <p>Sam: 10h00 - 13h00</p>
+                      <p>Dim: Fermé</p>
                     </div>
                   </div>
                 </div>
@@ -234,8 +235,9 @@ const Contact: React.FC = () => {
                   <div className="flex items-center space-x-3">
                     <Clock className="w-5 h-5 text-primary-600 flex-shrink-0" />
                     <div className="text-sm text-gray-600">
-                      <p>{t('contact.hours.weekdays')}</p>
-                      <p>{t('contact.hours.saturday')}</p>
+                      <p>Lun - Ven: 8h30 - 16h30</p>
+                      <p>Sam: 10h00 - 13h00</p>
+                      <p>Dim: Fermé</p>
                     </div>
                   </div>
                 </div>
@@ -292,11 +294,11 @@ const Contact: React.FC = () => {
                 <div className="flex items-start space-x-3">
                   <Clock className="w-5 h-5 text-gray-600 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-gray-900 mb-1">{t('contact.info.hours.title')}</p>
+                    <p className="font-medium text-gray-900 mb-1">Heures d'ouverture</p>
                     <div className="text-sm text-gray-600 space-y-1">
-                      <p>{t('contact.hours.weekdays')}</p>
-                      <p>{t('contact.hours.saturday')}</p>
-                      <p>{t('contact.hours.sunday')}</p>
+                      <p>Lundi - Vendredi: 8h30 - 16h30</p>
+                      <p>Samedi: 10h00 - 13h00</p>
+                      <p>Dimanche: Fermé</p>
                     </div>
                   </div>
                 </div>

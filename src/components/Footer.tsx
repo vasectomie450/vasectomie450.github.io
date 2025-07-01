@@ -106,16 +106,16 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold text-white">{t('footer.hours')}</h3>
             <div className="space-y-2 text-sm text-gray-300">
               <div className="flex justify-between">
-                <span>{t('footer.hours.weekdays')}</span>
-                <span>{t('footer.hours.weekdays.time')}</span>
+                <span>Lun - Ven</span>
+                <span>8h30 - 16h30</span>
               </div>
               <div className="flex justify-between">
-                <span>{t('footer.hours.saturday')}</span>
-                <span>{t('footer.hours.saturday.time')}</span>
+                <span>Samedi</span>
+                <span>10h00 - 13h00</span>
               </div>
               <div className="flex justify-between">
-                <span>{t('footer.hours.sunday')}</span>
-                <span>{t('footer.hours.closed')}</span>
+                <span>Dimanche</span>
+                <span>Fermé</span>
               </div>
             </div>
           </div>
