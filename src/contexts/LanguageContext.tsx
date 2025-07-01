@@ -162,6 +162,20 @@ const translations = {
     // FAQ Page
     'faq.title': 'Questions fréquemment posées',
     'faq.subtitle': 'Tout ce que vous devez savoir sur la vasectomie sans bistouri',
+    'faq.duration.question': 'Combien de temps dure la procédure?',
+    'faq.duration.answer': 'La vasectomie sans bistouri prend généralement entre 15 à 20 minutes. C\'est une procédure ambulatoire, vous pouvez rentrer chez vous le jour même.',
+    'faq.risks.question': 'Y a-t-il des risques ou complications?',
+    'faq.risks.answer': 'Comme toute intervention médicale, la vasectomie comporte des risques minimes. Les complications sont rares (moins de 1%) et incluent saignement, infection ou douleur persistante.',
+    'faq.effectiveness.question': 'Quand la vasectomie devient-elle effective?',
+    'faq.effectiveness.answer': 'La vasectomie n\'est pas immédiatement effective. Il faut attendre 8-12 semaines et faire un spermogramme de contrôle pour confirmer l\'absence de spermatozoïdes.',
+    'faq.work.question': 'Puis-je reprendre le travail immédiatement?',
+    'faq.work.answer': 'Pour un travail de bureau, vous pouvez généralement reprendre après 2-3 jours. Pour un travail physique, il est recommandé d\'attendre 1-2 semaines.',
+    'faq.performance.question': 'La vasectomie affecte-t-elle la performance sexuelle?',
+    'faq.performance.answer': 'Non, la vasectomie n\'affecte pas la performance sexuelle, la libido ou la capacité d\'érection. L\'éjaculation reste normale, seuls les spermatozoïdes sont absents.',
+    'faq.cta.more.questions': 'D\'autres questions?',
+    'faq.cta.contact.description': 'N\'hésitez pas à nous contacter pour toute question supplémentaire',
+    'faq.cta.contact.button': 'Nous contacter',
+    'faq.cta.appointment.button': 'Prendre rendez-vous',
     
     // Blog Page
     'blog.title': 'Actualités et informations',
@@ -429,6 +443,20 @@ const translations = {
     // FAQ Page
     'faq.title': 'Frequently Asked Questions',
     'faq.subtitle': 'Everything you need to know about no-scalpel vasectomy',
+    'faq.duration.question': 'How long does the procedure take?',
+    'faq.duration.answer': 'The no-scalpel vasectomy typically takes 15 to 20 minutes. It\'s an outpatient procedure, so you can go home the same day.',
+    'faq.risks.question': 'Are there any risks or complications?',
+    'faq.risks.answer': 'Like any medical procedure, vasectomy carries minimal risks. Complications are rare (less than 1%) and include bleeding, infection, or persistent pain.',
+    'faq.effectiveness.question': 'When does the vasectomy become effective?',
+    'faq.effectiveness.answer': 'Vasectomy is not immediately effective. You need to wait 8-12 weeks and have a semen analysis to confirm the absence of sperm.',
+    'faq.work.question': 'Can I return to work immediately?',
+    'faq.work.answer': 'For office work, you can usually return after 2-3 days. For physical work, it\'s recommended to wait 1-2 weeks.',
+    'faq.performance.question': 'Does vasectomy affect sexual performance?',
+    'faq.performance.answer': 'No, vasectomy does not affect sexual performance, libido, or erectile function. Ejaculation remains normal, only sperm are absent.',
+    'faq.cta.more.questions': 'More questions?',
+    'faq.cta.contact.description': 'Don\'t hesitate to contact us for any additional questions',
+    'faq.cta.contact.button': 'Contact us',
+    'faq.cta.appointment.button': 'Book appointment',
     
     // Blog Page
     'blog.title': 'News and Information',
