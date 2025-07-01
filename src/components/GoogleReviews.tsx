@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Quote, RefreshCw, ExternalLink } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface Review {
@@ -9,55 +9,22 @@ interface Review {
   text: string;
   date: string;
   avatar?: string;
-  source?: string;
+  source: string;
   relativeTime?: string;
-  language?: string;
-  originalLanguage?: string;
-  translated?: boolean;
 }
 
-interface GoogleReviewsData {
-  businessName: string;
+interface BusinessInfo {
+  name: string;
   rating: number;
   totalReviews: number;
-  reviews: Review[];
-  filteredCount: number;
 }
 
 const GoogleReviews: React.FC = () => {
-  const [googleReviews, setGoogleReviews] = useState<Review[]>([]);
-  const [businessInfo, setBusinessInfo] = useState<Partial<GoogleReviewsData>>({});
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [businessInfo, setBusinessInfo] = useState<BusinessInfo | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [hasError, setHasError] = useState(false);
   const { t } = useLanguage();
-
-  // Static reviews (keeping these as requested)
-  const staticReviews: Review[] = [
-    {
-      id: 'static-1',
-      author: 'Marc L.',
-      rating: 5,
-      text: 'Excellente expérience avec Dr Savard-Côté. Procédure rapide et sans douleur. Je recommande fortement!',
-      date: '2024-01-15',
-      source: 'Google'
-    },
-    {
-      id: 'static-2',
-      author: 'Sophie M.',
-      rating: 5,
-      text: 'Très professionnelle et rassurante. Mon conjoint était nerveux mais tout s\'est très bien passé.',
-      date: '2024-01-10',
-      source: 'Google'
-    },
-    {
-      id: 'static-3',
-      author: 'Jean-Pierre D.',
-      rating: 5,
-      text: 'Service rapide, prix transparent. Fini les listes d\'attente du public!',
-      date: '2024-01-05',
-      source: 'Google'
-    },
-  ];
 
   useEffect(() => {
     fetchGoogleReviews();
@@ -66,81 +33,78 @@ const GoogleReviews: React.FC = () => {
   const fetchGoogleReviews = async () => {
     try {
       setLoading(true);
-      setError(null);
+      setHasError(false);
 
-      console.log('Fetching Google reviews from backend...');
+      const placeId = 'ChIJT54XLeovyUwRfvEzDQoAEbE';
+      const apiKey = 'AIzaSyByyuoo6VdCdBV8HeVbBClTMOIszYaYMCk';
       
-      // Fetch from our backend endpoint
-      const response = await fetch('/api/google-reviews');
+      // Direct API call with JSONP to bypass CORS
+      const script = document.createElement('script');
+      const callbackName = `googleReviewsCallback_${Date.now()}`;
       
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+      // Create a promise that resolves when the JSONP callback is called
+      const jsonpPromise = new Promise((resolve, reject) => {
+        // Set up the callback
+        (window as any)[callbackName] = (data: any) => {
+          resolve(data);
+          // Clean up
+          document.head.removeChild(script);
+          delete (window as any)[callbackName];
+        };
 
-      const result = await response.json();
-      
-      if (!result.success) {
-        throw new Error(result.message || 'Failed to fetch reviews');
-      }
+        // Set up error handling
+        script.onerror = () => {
+          reject(new Error('Failed to load Google Places API'));
+          document.head.removeChild(script);
+          delete (window as any)[callbackName];
+        };
 
-      const data = result.data;
-      
-      console.log('Successfully fetched Google reviews:', {
-        businessName: data.businessName,
-        rating: data.rating,
-        totalReviews: data.totalReviews,
-        filteredCount: data.filteredCount
+        // Set timeout
+        setTimeout(() => {
+          if ((window as any)[callbackName]) {
+            reject(new Error('Request timeout'));
+            document.head.removeChild(script);
+            delete (window as any)[callbackName];
+          }
+        }, 10000);
       });
 
-      setGoogleReviews(data.reviews);
+      // Make the JSONP request
+      script.src = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,reviews&key=${apiKey}&callback=${callbackName}`;
+      document.head.appendChild(script);
+
+      const data = await jsonpPromise as any;
+
+      if (data.status !== 'OK') {
+        throw new Error(`Google Places API error: ${data.status}`);
+      }
+
+      // Filter and format reviews (4.5+ stars only)
+      const filteredReviews = data.result.reviews
+        ?.filter((review: any) => review.rating >= 4.5)
+        ?.map((review: any) => ({
+          id: `google-${review.time}`,
+          author: review.author_name,
+          rating: review.rating,
+          text: review.text,
+          date: new Date(review.time * 1000).toISOString().split('T')[0],
+          avatar: review.profile_photo_url,
+          source: 'Google',
+          relativeTime: review.relative_time_description
+        })) || [];
+
+      // Set business info
       setBusinessInfo({
-        businessName: data.businessName,
-        rating: data.rating,
-        totalReviews: data.totalReviews,
-        filteredCount: data.filteredCount
+        name: data.result.name,
+        rating: data.result.rating,
+        totalReviews: data.result.user_ratings_total
       });
 
+      setReviews(filteredReviews);
+      
     } catch (error) {
       console.error('Error fetching Google reviews:', error);
-      setError('Unable to load Google reviews at the moment');
-      
-      // Fallback: use additional static reviews to simulate Google reviews
-      const fallbackGoogleReviews: Review[] = [
-        {
-          id: 'fallback-1',
-          author: 'Nicolas B.',
-          rating: 5,
-          text: '100% recommandé. Après un an, c\'est toujours la meilleure décision que j\'ai prise. N\'hésitez pas à cause de la peur. Ils sont vraiment bons et professionnels.',
-          date: '2024-01-20',
-          source: 'Google',
-          relativeTime: 'il y a 5 mois'
-        },
-        {
-          id: 'fallback-2',
-          author: 'Dom D.',
-          rating: 5,
-          text: 'Merci beaucoup pour l\'excellent service de Mélanie! Tout s\'est passé en moins de 30 minutes! L\'accueil était très chaleureux.',
-          date: '2024-01-18',
-          source: 'Google',
-          relativeTime: 'il y a 1 mois'
-        },
-        {
-          id: 'fallback-3',
-          author: 'Marc D.',
-          rating: 5,
-          text: 'Excellent service à toute l\'équipe de la clinique Vasectomie 450. Procédure simple, rapide et très peu contraignante.',
-          date: '2024-01-12',
-          source: 'Google',
-          relativeTime: 'il y a 4 mois'
-        }
-      ];
-      setGoogleReviews(fallbackGoogleReviews);
-      setBusinessInfo({
-        businessName: 'Vasectomie 450',
-        rating: 4.6,
-        totalReviews: 18,
-        filteredCount: 5
-      });
+      setHasError(true);
     } finally {
       setLoading(false);
     }
@@ -157,18 +121,22 @@ const GoogleReviews: React.FC = () => {
     ));
   };
 
-  // Combine static and Google reviews
-  const allReviews = [...staticReviews, ...googleReviews];
-  const totalReviews = businessInfo.totalReviews || 18;
-  const averageRating = businessInfo.rating || 4.6;
-  const filteredCount = businessInfo.filteredCount || googleReviews.length;
+  // Don't render anything if there's an error or no reviews
+  if (hasError || (!loading && reviews.length === 0)) {
+    return null;
+  }
 
+  // Show loading state
   if (loading) {
     return (
-      <div className="text-center py-8">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500 mx-auto"></div>
-        <p className="mt-2 text-gray-600">{t('testimonials.loading')}</p>
-      </div>
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="text-center py-8">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500 mx-auto"></div>
+            <p className="mt-2 text-gray-600">Chargement des avis...</p>
+          </div>
+        </div>
+      </section>
     );
   }
 
@@ -179,37 +147,27 @@ const GoogleReviews: React.FC = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             {t('testimonials.title')}
           </h2>
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="flex space-x-1">
-              {renderStars(5)}
-            </div>
-            <span className="text-lg font-semibold text-gray-900">{averageRating}/5</span>
-            <span className="text-gray-600">• {totalReviews} avis Google</span>
-            {filteredCount > 0 && (
-              <span className="text-teal-600 text-sm">{filteredCount} avis excellents (4.5★+)</span>
-            )}
-          </div>
           
-          {error && (
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6 max-w-md mx-auto">
-              <div className="flex items-center justify-between">
-                <p className="text-yellow-800 text-sm">
-                  Impossible de charger les avis Google. Affichage des avis de démonstration.
-                </p>
-                <button
-                  onClick={fetchGoogleReviews}
-                  className="text-teal-600 hover:text-teal-700 ml-2"
-                  title="Actualiser"
-                >
-                  <RefreshCw className="w-4 h-4" />
-                </button>
+          {businessInfo && (
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <div className="flex space-x-1">
+                {renderStars(5)}
               </div>
+              <span className="text-lg font-semibold text-gray-900">
+                {businessInfo.rating}/5
+              </span>
+              <span className="text-gray-600">
+                • {businessInfo.totalReviews} avis Google
+              </span>
+              <span className="text-teal-600 text-sm">
+                {reviews.length} avis excellents (4.5★+)
+              </span>
             </div>
           )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {allReviews.slice(0, 6).map((review) => (
+          {reviews.slice(0, 6).map((review) => (
             <div key={review.id} className="card relative">
               <Quote className="absolute top-4 right-4 w-8 h-8 text-teal-100" />
               
@@ -238,14 +196,7 @@ const GoogleReviews: React.FC = () => {
               <p className="text-gray-700 mb-4 leading-relaxed">"{review.text}"</p>
               
               <div className="flex items-center justify-between text-sm text-gray-500">
-                <span className="flex items-center space-x-1">
-                  <span>{review.source || 'Google Reviews'}</span>
-                  {review.translated && (
-                    <span className="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">
-                      Traduit
-                    </span>
-                  )}
-                </span>
+                <span>{review.source}</span>
                 <span>
                   {review.relativeTime || new Date(review.date).toLocaleDateString('fr-CA')}
                 </span>
@@ -262,37 +213,36 @@ const GoogleReviews: React.FC = () => {
             className="inline-flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium transition-colors duration-200"
           >
             <span>Voir tous les avis sur Google</span>
-            <ExternalLink className="w-4 h-4" />
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
           </a>
         </div>
 
         {/* Google Reviews Summary */}
-        <div className="mt-12 bg-gradient-to-r from-teal-50 to-primary-50 rounded-xl p-6">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-4 mb-4">
-              <div className="flex items-center space-x-2">
-                <Star className="w-6 h-6 text-yellow-400 fill-current" />
-                <span className="text-2xl font-bold text-gray-900">{averageRating}/5</span>
-              </div>
-              <div className="text-gray-600">
-                Basé sur <strong>{totalReviews} avis</strong>
-              </div>
-              {filteredCount > 0 && (
-                <div className="text-teal-600 font-medium">
-                  {filteredCount} avis excellents (4.5★+)
+        {businessInfo && (
+          <div className="mt-12 bg-gradient-to-r from-teal-50 to-primary-50 rounded-xl p-6">
+            <div className="text-center">
+              <div className="flex items-center justify-center space-x-4 mb-4">
+                <div className="flex items-center space-x-2">
+                  <Star className="w-6 h-6 text-yellow-400 fill-current" />
+                  <span className="text-2xl font-bold text-gray-900">
+                    {businessInfo.rating}/5
+                  </span>
                 </div>
-              )}
-            </div>
-            <p className="text-gray-700">
-              Nos patients apprécient notre approche professionnelle et nos résultats exceptionnels.
-            </p>
-            {businessInfo.businessName && (
-              <p className="text-sm text-gray-600 mt-2">
-                Avis vérifiés pour <strong>{businessInfo.businessName}</strong>
+                <div className="text-gray-600">
+                  Basé sur <strong>{businessInfo.totalReviews} avis</strong>
+                </div>
+                <div className="text-teal-600 font-medium">
+                  {reviews.length} avis excellents (4.5★+)
+                </div>
+              </div>
+              <p className="text-gray-700">
+                Nos patients apprécient notre approche professionnelle et nos résultats exceptionnels.
               </p>
-            )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
