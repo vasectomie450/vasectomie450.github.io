@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Calendar, Phone, CheckCircle, Clock, DollarSign, Award, Users, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import GoogleReviews from '../components/GoogleReviews';
-import ReviewsErrorBoundary from '../components/ReviewsErrorBoundary';
 import CustomVideoPlayer from '../components/CustomVideoPlayer';
 
 const Home: React.FC = () => {
@@ -126,7 +125,7 @@ const Home: React.FC = () => {
             <div className="animate-on-scroll relative">
               <CustomVideoPlayer />
               
-              {/* Floating Stats - Positioned at bottom-right to avoid video overlap */}
+              {/* Floating Stats - Moved to bottom right to avoid video overlap */}
               <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
@@ -233,10 +232,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Google Reviews with Error Boundary */}
-      <ReviewsErrorBoundary>
-        <GoogleReviews />
-      </ReviewsErrorBoundary>
+      {/* Google Reviews */}
+      <GoogleReviews />
 
       {/* CTA Section */}
       <section className="section-padding bg-gradient-to-r from-teal-600 to-primary-600 text-white">
