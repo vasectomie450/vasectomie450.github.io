@@ -15,7 +15,7 @@ const Blog: React.FC = () => {
       date: '15 mars 2024',
       readTime: '5 min',
       category: 'Procédure',
-      image: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: 'https://images.pexels.com/photos/874242/pexels-photo-874242.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const Blog: React.FC = () => {
       date: '8 mars 2024',
       readTime: '7 min',
       category: 'Récupération',
-      image: 'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: 'https://images.pexels.com/photos/7855661/pexels-photo-7855661.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       id: 3,
@@ -35,7 +35,7 @@ const Blog: React.FC = () => {
       date: '1 mars 2024',
       readTime: '6 min',
       category: 'Comparaison',
-      image: 'https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: 'https://images.pexels.com/photos/6471430/pexels-photo-6471430.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       id: 4,
@@ -65,7 +65,7 @@ const Blog: React.FC = () => {
       date: '8 février 2024',
       readTime: '6 min',
       category: 'Bien-être',
-      image: 'https://images.pexels.com/photos/4386465/pexels-photo-4386465.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: 'https://images.pexels.com/photos/7699422/pexels-photo-7699422.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ] : [
     {
@@ -126,7 +126,7 @@ const Blog: React.FC = () => {
       date: 'February 8, 2024',
       readTime: '6 min',
       category: 'Well-being',
-      image: 'https://images.pexels.com/photos/4386465/pexels-photo-4386465.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: 'https://images.pexels.com/photos/7699422/pexels-photo-7699422.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ];
 
