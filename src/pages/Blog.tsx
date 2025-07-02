@@ -131,13 +131,13 @@ const Blog: React.FC = () => {
     }
   ];
 
-  const categories = language === 'fr' 
+  const categories = language === 'fr'
     ? ['Tous', 'Procédure', 'Récupération', 'Comparaison', 'Éducation', 'Consultation', 'Bien-être']
     : ['All', 'Procedure', 'Recovery', 'Comparison', 'Education', 'Consultation', 'Well-being'];
 
   // Filter posts based on selected category
-  const filteredPosts = selectedCategory === 'Tous' || selectedCategory === 'All' 
-    ? blogPosts 
+  const filteredPosts = selectedCategory === 'Tous' || selectedCategory === 'All'
+    ? blogPosts
     : blogPosts.filter(post => post.category === selectedCategory);
 
   const handleCategoryClick = (category: string) => {
@@ -185,8 +185,8 @@ const Blog: React.FC = () => {
           {filteredPosts.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
-                {language === 'fr' 
-                  ? 'Aucun article trouvé dans cette catégorie.' 
+                {language === 'fr'
+                  ? 'Aucun article trouvé dans cette catégorie.'
                   : 'No articles found in this category.'
                 }
               </p>
@@ -196,13 +196,13 @@ const Blog: React.FC = () => {
               {filteredPosts.map((post) => (
                 <article key={post.id} className="card group hover:shadow-xl transition-shadow duration-300">
                   <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden mb-6">
-                    <img 
+                    <img
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  
+
                   <div className="space-y-4">
                     <div className="flex items-center justify-between text-sm text-gray-500">
                       <span className="bg-teal-100 text-teal-800 px-3 py-1 rounded-full font-medium">
@@ -213,15 +213,15 @@ const Blog: React.FC = () => {
                         <span>{post.readTime}</span>
                       </div>
                     </div>
-                    
+
                     <h2 className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors duration-200">
                       {post.title}
                     </h2>
-                    
+
                     <p className="text-gray-600 leading-relaxed">
                       {post.excerpt}
                     </p>
-                    
+
                     <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                       <div className="flex items-center space-x-3">
                         <div className="flex items-center space-x-2 text-sm text-gray-500">
@@ -229,13 +229,13 @@ const Blog: React.FC = () => {
                           <span>{post.author}</span>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-center space-x-2 text-sm text-gray-500">
                         <Calendar className="w-4 h-4" />
                         <span>{post.date}</span>
                       </div>
                     </div>
-                    
+
                     <button className="inline-flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium transition-colors duration-200">
                       <span>{language === 'fr' ? 'Lire l\'article' : 'Read article'}</span>
                       <ArrowRight className="w-4 h-4" />
@@ -255,12 +255,12 @@ const Blog: React.FC = () => {
             {language === 'fr' ? 'Restez informé' : 'Stay informed'}
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            {language === 'fr' 
+            {language === 'fr'
               ? 'Recevez nos derniers articles et conseils sur la santé masculine directement dans votre boîte email'
               : 'Receive our latest articles and men\'s health tips directly in your email inbox'
             }
           </p>
-          
+
           <div className="max-w-md mx-auto">
             <div className="flex flex-col sm:flex-row gap-4">
               <input
@@ -273,7 +273,7 @@ const Blog: React.FC = () => {
               </button>
             </div>
             <p className="text-sm text-white/70 mt-3">
-              {language === 'fr' 
+              {language === 'fr'
                 ? 'Pas de spam, désabonnement facile à tout moment'
                 : 'No spam, easy unsubscribe at any time'
               }
