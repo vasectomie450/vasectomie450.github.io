@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import laserImage from '../laser.png';
 
 const Blog: React.FC = () => {
   const { t, language } = useLanguage();
@@ -45,7 +46,7 @@ const Blog: React.FC = () => {
       date: '22 février 2024',
       readTime: '4 min',
       category: 'Éducation',
-      image: 'https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: laserImage
     },
     {
       id: 5,
@@ -76,7 +77,7 @@ const Blog: React.FC = () => {
       date: 'March 15, 2024',
       readTime: '5 min',
       category: 'Procedure',
-      image: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: 'https://images.pexels.com/photos/874242/pexels-photo-874242.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       id: 2,
@@ -86,7 +87,7 @@ const Blog: React.FC = () => {
       date: 'March 8, 2024',
       readTime: '7 min',
       category: 'Recovery',
-      image: 'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: 'https://images.pexels.com/photos/7855661/pexels-photo-7855661.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       id: 3,
@@ -96,7 +97,7 @@ const Blog: React.FC = () => {
       date: 'March 1, 2024',
       readTime: '6 min',
       category: 'Comparison',
-      image: 'https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: 'https://images.pexels.com/photos/6471430/pexels-photo-6471430.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       id: 4,
@@ -106,7 +107,7 @@ const Blog: React.FC = () => {
       date: 'February 22, 2024',
       readTime: '4 min',
       category: 'Education',
-      image: 'https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: laserImage
     },
     {
       id: 5,

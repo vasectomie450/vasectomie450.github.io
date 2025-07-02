@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Appointments from './pages/Appointments';
 import About from './pages/About';
 import FloatingCTA from './components/FloatingCTA';
+import ScrollToTop from './components/ScrollToTop';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
   return (
     <LanguageProvider>
       <div className="min-h-screen bg-ivory-50">
+        <ScrollToTop />
         <Header />
         <main>
           <Routes>
