@@ -1,13 +1,13 @@
 import React from 'react';
-import { Award, Users, Clock, Heart, Shield, Star } from 'lucide-react';
+import { Award, Users, Clock, Heart, Shield, Star, BookOpen, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const About: React.FC = () => {
   const { t } = useLanguage();
 
   const stats = [
-    { number: '550+', label: t('home.stats.procedures') },
-    { number: '15+', label: t('home.stats.experience') },
+    { number: '1000+', label: t('home.stats.procedures') },
+    { number: '8+', label: t('home.stats.experience') },
     { number: '20 min', label: t('home.stats.duration') }
   ];
 
@@ -62,6 +62,19 @@ const About: React.FC = () => {
     t('about.certifications.satisfaction')
   ];
 
+  const achievements = [
+    {
+      icon: BookOpen,
+      title: t('about.doctor.contributions'),
+      color: 'indigo'
+    },
+    {
+      icon: Globe,
+      title: t('about.doctor.international'),
+      color: 'teal'
+    }
+  ];
+
   return (
     <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
@@ -108,6 +121,27 @@ const About: React.FC = () => {
                 {t('about.doctor.description')}
               </p>
               
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                {t('about.doctor.experience')}
+              </p>
+              
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                {t('about.doctor.background')}
+              </p>
+              
+              <div className="space-y-6 mb-8">
+                {achievements.map((achievement, index) => (
+                  <div key={index} className="flex items-start">
+                    <div className={`bg-${achievement.color}-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4 flex-shrink-0`}>
+                      <achievement.icon className={`w-6 h-6 text-${achievement.color}-600`} />
+                    </div>
+                    <div className="pt-2">
+                      <p className="text-gray-700">{achievement.title}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
                   <div key={index} className="flex items-center">
@@ -128,7 +162,7 @@ const About: React.FC = () => {
                   className="w-full h-80 object-cover object-top rounded-xl mb-6"
                 />
                 <blockquote className="text-lg italic">
-                  {t('about.doctor.description')}
+                  {t('about.doctor.international')}
                 </blockquote>
               </div>
             </div>

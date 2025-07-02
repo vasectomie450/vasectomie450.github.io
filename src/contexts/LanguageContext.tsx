@@ -45,7 +45,7 @@ const translations = {
     // About Doctor
     'doctor.title': 'Dr Mélanie Savard-Côté',
     'doctor.subtitle': 'Médecin spécialisée en vasectomie',
-    'doctor.description': 'Seule femme médecin offrant la vasectomie dans la région des Laurentides. Plus de 10 ans d\'expérience avec la technique sans bistouri.',
+    'doctor.description': 'Médecin expérimentée offrant des services de vasectomie de haute qualité dans la région des Laurentides. Plus de 10 ans d\'expertise avec la technique sans bistouri.',
     
     // Testimonials
     'testimonials.title': 'Ce que disent nos patients',
@@ -184,9 +184,13 @@ const translations = {
     // About Page
     'about.title': 'À Propos de Vasectomie450',
     'about.subtitle': 'Votre clinique spécialisée en vasectomie sans bistouri, offrant des soins professionnels et personnalisés dans un environnement moderne et sécuritaire.',
-    'about.doctor.name': 'Dr Mélanie Savard-Côté',
-    'about.doctor.title': 'Médecin spécialisée en urologie',
-    'about.doctor.description': 'Médecin spécialisée en urologie avec plus de 15 années d\'expérience dans les procédures de vasectomie sans bistouri. Diplômée de l\'Université de Montréal, elle s\'est perfectionnée dans les techniques les plus modernes et les moins invasives.',
+    'about.doctor.name': 'Dr Mélanie Savard-Côté, M.D., CMFC, FMFC',
+    'about.doctor.title': 'Médecin spécialisée en vasectomie',
+    'about.doctor.description': 'Diplômée de l\'Université de Montréal en médecine familiale. Formée en vasectomie par le Dr Michel Labrèque de Vasectomie Québec, professeur émérite du Département de médecine familiale de l\'Université Laval. Pratique la vasectomie depuis 2016, d\'abord au GMF Montée de La Baie à St-Joseph-du-Lac, puis à la Polyclinique St-Eustache, accumulant plus d\'un millier de vasectomies.',
+    'about.doctor.experience': 'Clinicienne d\'expérience, le Dr Savard-Coté a enseigné la médecine familiale et les chirurgies mineures à plusieurs dizaines de résidents à l\'Unité d\'Enseignement de la Médecine Familiale de St-Eustache.',
+    'about.doctor.international': 'Conférencière internationale en vasectomie, participant également à des missions humanitaires avec NSVI International et World Vasectomy Day pour améliorer l\'accès à la vasectomie dans les pays où les services de vasectomie sont moins développés.',
+    'about.doctor.contributions': 'Collaboration à la rédaction "Training manual: No Scalpel Vasectomy" edition 2025. Fondatrice de Vasectomie 450 en 2019.',
+    'about.doctor.background': 'Devenue vasectomiste initialement pour répondre aux besoins de sa clientèle obstétricale et des familles des Laurentides, après 15 ans de services en salle d\'accouchement à l\'hôpital St-Eustache.',
     'about.technique.title': 'Technique Sans Bistouri',
     'about.technique.subtitle': 'Nous utilisons la technique de vasectomie sans bistouri, plus moderne et moins invasive que les méthodes traditionnelles.',
     'about.values.title': 'Nos Valeurs',
@@ -326,7 +330,7 @@ const translations = {
     // About Doctor
     'doctor.title': 'Dr Mélanie Savard-Côté',
     'doctor.subtitle': 'Vasectomy specialist physician',
-    'doctor.description': 'The only female doctor offering vasectomy in the Laurentides region. Over 10 years of experience with the no-scalpel technique.',
+    'doctor.description': 'Experienced physician providing high-quality vasectomy services in the Laurentides region. Over 10 years of expertise with the no-scalpel technique.',
     
     // Testimonials
     'testimonials.title': 'What our patients say',
@@ -465,9 +469,13 @@ const translations = {
     // About Page
     'about.title': 'About Vasectomy450',
     'about.subtitle': 'Your specialized no-scalpel vasectomy clinic, offering professional and personalized care in a modern and safe environment.',
-    'about.doctor.name': 'Dr Mélanie Savard-Côté',
-    'about.doctor.title': 'Urologist specialist physician',
-    'about.doctor.description': 'Urologist specialist physician with over 15 years of experience in no-scalpel vasectomy procedures. Graduate of the University of Montreal, she has specialized in the most modern and least invasive techniques.',
+    'about.doctor.name': 'Dr Mélanie Savard-Côté, M.D., CMFC, FMFC',
+    'about.doctor.title': 'Vasectomy Specialist Physician',
+    'about.doctor.description': 'Graduate of the University of Montreal in family medicine. Trained in vasectomy by Dr. Michel Labrèque of Vasectomy Quebec, professor emeritus of the Department of Family Medicine at Laval University. Practicing vasectomy since 2016, first at GMF Montée de La Baie in St-Joseph-du-Lac, then at Polyclinique St-Eustache, accumulating over a thousand vasectomies.',
+    'about.doctor.experience': 'Experienced clinician, Dr. Savard-Coté has taught family medicine and minor surgeries to dozens of residents at the Family Medicine Teaching Unit of St-Eustache.',
+    'about.doctor.international': 'International speaker on vasectomy, also participating in humanitarian missions with NSVI International and World Vasectomy Day to improve access to vasectomy in countries where vasectomy services are less developed.',
+    'about.doctor.contributions': 'Collaboration in writing "Training manual: No Scalpel Vasectomy" 2025 edition. Founder of Vasectomy 450 in 2019.',
+    'about.doctor.background': 'Initially became a vasectomist to meet the needs of her obstetrical clientele and families in the Laurentides region, after 15 years of service in the delivery room at St-Eustache Hospital.',
     'about.technique.title': 'No-Scalpel Technique',
     'about.technique.subtitle': 'We use the no-scalpel vasectomy technique, which is more modern and less invasive than traditional methods.',
     'about.values.title': 'Our Values',

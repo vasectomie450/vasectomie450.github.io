@@ -12,13 +12,13 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">V</span>
-              </div>
-              <div>
-                <span className="text-xl font-bold">Vasectomie</span>
-                <span className="text-xl font-bold text-teal-400 ml-1">450</span>
+            <div className="flex items-center">
+              <div className="h-14 flex items-center">
+                <img
+                  src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/Vasectomie%20450.png"
+                  alt="Vasectomie 450"
+                  className="h-full w-auto object-contain brightness-0 invert"
+                />
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">

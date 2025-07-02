@@ -38,15 +38,15 @@ const Header: React.FC = () => {
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/90 backdrop-blur-sm'
     }`}>
       <div className="container-max">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-primary-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">V</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-xl font-bold text-gray-900">Vasectomie</span>
-              <span className="text-xl font-bold text-teal-600 ml-1">450</span>
+            <div className="h-28 lg:h-32 flex items-center">
+              <img
+                src="https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/Vasectomie%20450.png"
+                alt="Vasectomie 450"
+                className="h-full w-auto object-contain"
+              />
             </div>
           </Link>
 

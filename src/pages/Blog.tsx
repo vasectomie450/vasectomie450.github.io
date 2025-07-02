@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import laserImage from '../laser.png';
+
 
 const Blog: React.FC = () => {
   const { t, language } = useLanguage();
@@ -46,7 +46,7 @@ const Blog: React.FC = () => {
       date: '22 février 2024',
       readTime: '4 min',
       category: 'Éducation',
-      image: laserImage
+      image: 'https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/laser.png?auto=compress&cs=tinysrgb&w=800'
     },
     {
       id: 5,
@@ -107,7 +107,7 @@ const Blog: React.FC = () => {
       date: 'February 22, 2024',
       readTime: '4 min',
       category: 'Education',
-      image: laserImage
+      image: 'https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/laser.png?auto=compress&cs=tinysrgb&w=800'
     },
     {
       id: 5,
@@ -245,40 +245,6 @@ const Blog: React.FC = () => {
               ))}
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="section-padding bg-gradient-to-r from-teal-600 to-primary-600 text-white">
-        <div className="container-max text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            {language === 'fr' ? 'Restez informé' : 'Stay informed'}
-          </h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            {language === 'fr'
-              ? 'Recevez nos derniers articles et conseils sur la santé masculine directement dans votre boîte email'
-              : 'Receive our latest articles and men\'s health tips directly in your email inbox'
-            }
-          </p>
-
-          <div className="max-w-md mx-auto">
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder={language === 'fr' ? 'Votre adresse email' : 'Your email address'}
-                className="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-coral-500"
-              />
-              <button className="btn-coral px-6 py-3 whitespace-nowrap">
-                {language === 'fr' ? 'S\'abonner' : 'Subscribe'}
-              </button>
-            </div>
-            <p className="text-sm text-white/70 mt-3">
-              {language === 'fr'
-                ? 'Pas de spam, désabonnement facile à tout moment'
-                : 'No spam, easy unsubscribe at any time'
-              }
-            </p>
-          </div>
         </div>
       </section>
     </div>
