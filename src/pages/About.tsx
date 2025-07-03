@@ -1,9 +1,9 @@
 import React from 'react';
-import { Award, Users, Clock, Heart, Shield, Star, BookOpen, Globe } from 'lucide-react';
+import { Award, Users, Clock, Heart, Shield, Star, BookOpen, Globe, FileText } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const About: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const stats = [
     { number: '1000+', label: t('home.stats.procedures') },
@@ -62,18 +62,86 @@ const About: React.FC = () => {
     t('about.certifications.satisfaction')
   ];
 
-  const achievements = [
-    {
-      icon: BookOpen,
-      title: t('about.doctor.contributions'),
-      color: 'indigo'
-    },
-    {
-      icon: Globe,
-      title: t('about.doctor.international'),
-      color: 'teal'
-    }
-  ];
+  // Updated achievements with training manual link
+  const renderAchievements = () => {
+    const isEnglish = language === 'en';
+    
+    const trainingManualTextFr = 'Collaboration à la rédaction ';
+    const trainingManualLinkTextFr = '"Training manual: No Scalpel Vasectomy" edition 2025';
+    const trainingManualSuffixFr = '. Fondatrice de Vasectomie 450 en 2019.';
+    
+    const trainingManualTextEn = 'Collaboration in writing ';
+    const trainingManualLinkTextEn = '"Training manual: No Scalpel Vasectomy" 2025 edition';
+    const trainingManualSuffixEn = '. Founder of Vasectomy 450 in 2019.';
+    
+    const prefix = isEnglish ? trainingManualTextEn : trainingManualTextFr;
+    const linkText = isEnglish ? trainingManualLinkTextEn : trainingManualLinkTextFr;
+    const suffix = isEnglish ? trainingManualSuffixEn : trainingManualSuffixFr;
+    
+    return (
+      <div className="space-y-6 mb-8">
+        <div className="flex items-start">
+          <div className="bg-indigo-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+            <FileText className="w-6 h-6 text-indigo-600" />
+          </div>
+          <div className="pt-2">
+            <p className="text-gray-700">
+              {prefix}
+              <a 
+                href="https://www.simplevas.net/wp-content/uploads/2025/05/MANUAL-WVD-2025_compressed.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary-600 hover:text-primary-700 transition-colors"
+              >
+                {linkText}
+              </a>
+              {suffix}
+            </p>
+          </div>
+        </div>
+        <div className="flex items-start">
+          <div className="bg-teal-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+            <Globe className="w-6 h-6 text-teal-600" />
+          </div>
+          <div className="pt-2">
+            <p className="text-gray-700">{t('about.doctor.international')}</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Function to render the doctor description with a link to Dr. Michel Labrèque
+  const renderDoctorDescription = () => {
+    const frenchText = 'Diplômée de l\'Université de Montréal en médecine familiale. Formée en vasectomie par le ';
+    const englishText = 'Graduate of the University of Montreal in family medicine. Trained in vasectomy by ';
+    
+    const drLabrequeNameFr = 'Dr Michel Labrèque de Vasectomie Québec';
+    const drLabrequeNameEn = 'Dr. Michel Labrèque of Vasectomy Quebec';
+    
+    const restOfTextFr = ', professeur émérite du Département de médecine familiale de l\'Université Laval. Pratique la vasectomie depuis 2016, d\'abord au GMF Montée de La Baie à St-Joseph-du-Lac, puis à la Polyclinique St-Eustache, accumulant plus d\'un millier de vasectomies.';
+    const restOfTextEn = ', professor emeritus of the Department of Family Medicine at Laval University. Practicing vasectomy since 2016, first at GMF Montée de La Baie in St-Joseph-du-Lac, then at Polyclinique St-Eustache, accumulating over a thousand vasectomies.';
+    
+    const isEnglish = language === 'en';
+    const prefix = isEnglish ? englishText : frenchText;
+    const name = isEnglish ? drLabrequeNameEn : drLabrequeNameFr;
+    const suffix = isEnglish ? restOfTextEn : restOfTextFr;
+    
+    return (
+      <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+        {prefix}
+        <a 
+          href="https://vasectomie.net/notre-equipe/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-primary-600 hover:text-primary-700 transition-colors"
+        >
+          {name}
+        </a>
+        {suffix}
+      </p>
+    );
+  };
 
   return (
     <div className="pt-16 lg:pt-20">
@@ -117,9 +185,9 @@ const About: React.FC = () => {
               <p className="text-xl text-gray-700 mb-6 font-medium">
                 {t('about.doctor.title')}
               </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                {t('about.doctor.description')}
-              </p>
+              
+              {/* Doctor description with link to Dr. Michel Labrèque */}
+              {renderDoctorDescription()}
               
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 {t('about.doctor.experience')}
@@ -129,18 +197,8 @@ const About: React.FC = () => {
                 {t('about.doctor.background')}
               </p>
               
-              <div className="space-y-6 mb-8">
-                {achievements.map((achievement, index) => (
-                  <div key={index} className="flex items-start">
-                    <div className={`bg-${achievement.color}-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4 flex-shrink-0`}>
-                      <achievement.icon className={`w-6 h-6 text-${achievement.color}-600`} />
-                    </div>
-                    <div className="pt-2">
-                      <p className="text-gray-700">{achievement.title}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {/* Achievements with training manual link */}
+              {renderAchievements()}
               
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
