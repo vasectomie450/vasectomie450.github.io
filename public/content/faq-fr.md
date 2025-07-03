@@ -1,5 +1,7 @@
 # Questions fréquemment posées
 
+# Informations Générales sur la Vasectomie
+
 ## Qu'est-ce qu'une vasectomie ?
 La vasectomie est une méthode de contraception masculine qui empêche le transport des spermatozoïdes dans votre sperme. Elle est réalisée en coupant et en scellant les tubes (aussi appelé vas) qui transportent les spermatozoïdes. Considérée comme une forme de contraception permanente, c'est une chirurgie mineure réalisée sous anesthésie locale en cabinet.
 
@@ -39,6 +41,8 @@ Le Ministère de la Santé du Québec ne permet pas aux médecins de travailler 
 
 Dr Savard-Côté est un médecin qui ne participe pas au Régime d'Assurance Maladie du Québec depuis 2022. Vous devrez donc payer les frais des services médicaux reçus au Québec et ne pourrez pas obtenir de remboursement de la RAMQ. Nous reconnaissons que certains patients n'ont pas la capacité financière de payer ces honoraires. Nous pourrons vous accompagner pour trouver des solutions.
 
+# Préparation et Procédure
+
 ## Comment se préparer à une vasectomie ?
 La préparation implique d'arrêter certains médicaments comme les anticoagulants, de porter des sous-vêtements serrés ou un support athlétique après l'opération, et de garantir une bonne hygiène le jour de l'opération. Il est également conseillé d'organiser un transport après l'opération.
 
@@ -52,6 +56,8 @@ La qualité de l'anesthésie, la rapidité d'action et la sensation lors de l'in
 
 ## Ma conjointe peut-elle être présente lors de la vasectomie ?
 Oui, si cela vous convient et qu'elle est également à l'aise avec l'idée.
+
+# Récupération et Efficacité
 
 ## À quoi ressemble le processus de récupération après une vasectomie ?
 Après l'opération, attendez-vous à des ecchymoses, un gonflement et une douleur, qui s'améliorent généralement en quelques jours. Les recommandations incluent de soutenir le scrotum, d'appliquer des packs de glace, de limiter l'activité physique et d'éviter les activités sexuelles pendant une courte période.
@@ -79,6 +85,8 @@ Laisser les tissus guérir sans activité sexuelle permettra d'éviter l'inflamm
 ## Que se passe-t-il si j'ai une érection nocturne après la vasectomie ?
 Aucun problème. Les érections nocturnes sont fréquentes et sont un signe de bonne santé cardiovasculaire. Elles ne comportent aucun risque après une vasectomie. Cependant, cela ne signifie pas qu'il faille en profiter immédiatement. Nous vous rappelons qu'il est recommandé de ne pas avoir de relations sexuelles pendant 5 à 7 jours après la vasectomie.
 
+# Santé et Complications
+
 ## Y a-t-il des risques ou des effets secondaires associés à la vasectomie ?
 Les risques comprennent un éventuel regret si vous changez d'avis sur le fait de vouloir avoir un enfant, car les reversions ne sont pas toujours couronnées de succès. Les effets secondaires courants après l'opération peuvent inclure des saignements, du sang dans le sperme, des ecchymoses, une infection, une douleur légère et un gonflement. La douleur chronique et d'autres complications sont rares.
 
@@ -105,6 +113,8 @@ Ce ne sont pas les canaux qui retiennent les testicules. Le cordon spermatique e
 
 ## Mon taux de testostérone changera-t-il après la vasectomie ?
 Non. Les testicules continuent de fonctionner normalement après la vasectomie. Durant l'opération, seuls les canaux transportant les spermatozoïdes sont touchés, et non les vaisseaux sanguins qui transportent la testostérone. Plusieurs études ont démontré que la fonction sexuelle est préservée après la vasectomie.
+
+# Autres Questions Pratiques
 
 ## Puis-je consommer de l'alcool après la vasectomie ?
 Il n'y a aucun problème à consommer de l'alcool avec modération après la vasectomie. Par contre, si vous avez pris des médicaments, assurez-vous que l'alcool n'interfère pas avec ceux-ci.

@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# General Information about Vasectomy
 
 ## What is a vasectomy?
 A vasectomy is a form of male contraception that prevents sperm from being transported in your semen. It involves cutting and sealing the tubes (also called vas deferens) that carry sperm. Considered a permanent form of birth control, it is a minor procedure performed under local anesthesia in a medical office.
@@ -30,6 +30,8 @@ In Quebec, doctors cannot work in both the public and private sectors, unlike in
 
 Dr. Savard-Côté has not participated in RAMQ since 2022, so you will have to pay for your procedure and will not be reimbursed by RAMQ. If cost is a concern, we can help you explore alternative solutions.
 
+# Preparation and Procedure
+
 ## How should I prepare for a vasectomy?
 Preparation includes stopping certain medications like blood thinners, wearing tight underwear or an athletic supporter after the procedure, and ensuring good hygiene the day of the surgery. Arrange for someone to drive you home afterward.
 
@@ -43,6 +45,8 @@ The effectiveness, speed, and sensation of anesthesia are similar. For patients 
 
 ## Can my partner be present during the vasectomy?
 Yes, if both of you are comfortable with it.
+
+# Recovery and Effectiveness
 
 ## What is recovery like after a vasectomy?
 Expect bruising, swelling, and discomfort, which usually resolve in a few days. Support your scrotum, apply ice packs, limit physical activity, and avoid sexual activity for a short period.
@@ -67,6 +71,8 @@ Avoid sex for 5–7 days to allow proper healing and reduce the risk of infectio
 
 ## What if I get a nocturnal erection after the vasectomy?
 No problem—these are normal and pose no risk. However, avoid sexual activity for 5–7 days post-op.
+
+# Health and Complications
 
 ## Are there risks or side effects?
 Possible regrets if you change your mind, as reversal isn’t always successful. Common side effects include bleeding, bruising, infection, minor pain, and swelling. Chronic pain and serious complications are rare.
@@ -95,6 +101,8 @@ The vas deferens do not support the testicles. The spermatic cord, made of muscl
 ## Will my testosterone levels change?
 No. Only the sperm-carrying ducts are affected. Blood vessels that transport testosterone remain intact, and multiple studies confirm normal sexual function post-vasectomy.
 
+# Other Practical Questions
+
 ## Can I drink alcohol after a vasectomy?
 Moderate alcohol consumption is fine unless you’re taking medication that interacts with it.
 
@@ -109,7 +117,7 @@ Avoid international travel or remote destinations for 1–2 weeks. Air travel is
 ## How do I get reimbursed for a vasectomy?
 Check with your private insurance. In Canada and Quebec, you may claim the expense on your tax return:
 
-- [Canada Revenue Agency – Medical Expenses](https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/rc4065/medical-expenses.html#toc14)  
+- [Canada Revenue Agency – Medical Expenses](https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/rc4065/medical-expenses.html#toc14)
 - [Revenu Québec – Medical Expenses Credit](https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/frais-medicaux/)
 
 Note: RAMQ does not reimburse procedures performed by non-participating physicians.
