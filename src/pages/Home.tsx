@@ -70,9 +70,22 @@ const Home: React.FC = () => {
   return (
     <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-ivory-50 via-white to-teal-50 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-ivory-50 via-white to-teal-50 overflow-hidden hero-with-background">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{
+            backgroundImage: 'url(https://img1.wsimg.com/isteam/ip/8f5ff2e6-294e-4680-8498-e7775cfdc4f0/happy%20sperm.jpg)'
+          }}
+        ></div>
+        
+        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-primary-500/5"></div>
-        <div className="container-max section-padding relative">
+        
+        {/* Additional overlay for better text readability */}
+        <div className="absolute inset-0 bg-white/80"></div>
+        
+        <div className="container-max section-padding relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
             <div className="animate-on-scroll">
