@@ -136,6 +136,35 @@
   }
 }
 
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(-20px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-5px);
+  }
+  70% {
+    transform: scale(0.95) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
 }
@@ -155,6 +184,27 @@
 .animate-pulse-slow {
   animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+.animate-slide-in-top {
+  animation: slideInFromTop 0.5s ease-out forwards;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.6s ease-out forwards;
+}
+
+/* Sophisticated Menu Animations */
+.menu-item-enter {
+  animation: bounceIn 0.6s ease-out forwards;
+}
+
+.menu-item-enter:nth-child(1) { animation-delay: 0ms; }
+.menu-item-enter:nth-child(2) { animation-delay: 50ms; }
+.menu-item-enter:nth-child(3) { animation-delay: 100ms; }
+.menu-item-enter:nth-child(4) { animation-delay: 150ms; }
+.menu-item-enter:nth-child(5) { animation-delay: 200ms; }
+.menu-item-enter:nth-child(6) { animation-delay: 250ms; }
+.menu-item-enter:nth-child(7) { animation-delay: 300ms; }
 
 /* Smooth animations */
 .animate-on-scroll {
@@ -394,4 +444,13 @@
   max-height: 0;
   opacity: 0;
   transition: max-height 0.5s ease-in-out 0.1s, opacity 0.3s ease-in-out;
+}
+
+/* Scale utility for hover effects */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+.scale-102 {
+  transform: scale(1.02);
 }
