@@ -27,9 +27,16 @@ export default defineConfig({
     }
   },
   server: {
-    // Security: Bind to localhost only in development
-    host: '127.0.0.1',
+    // Allow network access in development
+    host: '0.0.0.0',
     port: 5173,
+    // Enable CORS for network access
+    cors: true,
+    // Configure HMR for network access
+    hmr: {
+      host: '0.0.0.0',
+      port: 5173
+    },
     // Security: Disable server.fs.allow for stricter file access
     fs: {
       strict: true,

@@ -2,13 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Star, Quote } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-// Declare Google Maps types
-declare global {
-  interface Window {
-    google: any;
-    initGoogleMaps: () => void;
-  }
-}
+
 
 interface Review {
   id: string;
@@ -27,94 +21,48 @@ interface BusinessInfo {
   totalReviews: number;
 }
 
+interface GoogleReviewsResponse {
+  businessInfo: BusinessInfo;
+  reviews: Review[];
+  error?: string;
+}
+
 const GoogleReviews: React.FC = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
-  const [businessInfo, setBusinessInfo] = useState<BusinessInfo | null>(null);
   const [loading, setLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const { t } = useLanguage();
 
   useEffect(() => {
-    loadGoogleMapsAPI();
+    fetchGoogleReviews();
   }, []);
 
-  const loadGoogleMapsAPI = () => {
-    // Check if Google Maps is already loaded
-    if (window.google?.maps) {
-      fetchGoogleReviews();
-      return;
-    }
-
-    // Create callback function
-    window.initGoogleMaps = () => {
-      fetchGoogleReviews();
-    };
-
-    // Load Google Maps JavaScript API
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyByyuoo6VdCdBV8HeVbBClTMOIszYaYMCk&libraries=places&callback=initGoogleMaps`;
-    script.async = true;
-    script.defer = true;
-    script.onerror = () => {
-      console.error('Failed to load Google Maps API');
-      setHasError(true);
-      setLoading(false);
-    };
-    document.head.appendChild(script);
-  };
-
-  const fetchGoogleReviews = () => {
+  const fetchGoogleReviews = async () => {
     try {
       setLoading(true);
       setHasError(false);
 
-      const placeId = 'ChIJT54XLeovyUwRfvEzDQoAEbE';
+      const placeId = import.meta.env.VITE_GOOGLE_PLACE_ID || 'ChIJT54XLeovyUwRfvEzDQoAEbE';
       
-      // Create a PlacesService instance
-      const service = new window.google.maps.places.PlacesService(
-        document.createElement('div')
-      );
-
-      // Request place details
-      const request = {
-        placeId: placeId,
-        fields: ['name', 'rating', 'user_ratings_total', 'reviews']
-      };
-
-      service.getDetails(request, (place: any, status: any) => {
-        if (status === window.google.maps.places.PlacesServiceStatus.OK && place) {
-          // Filter and format reviews (4.5+ stars only)
-          const filteredReviews = place.reviews
-            ?.filter((review: any) => review.rating >= 4.5)
-            ?.map((review: any) => ({
-              id: `google-${review.time}`,
-              author: review.author_name,
-              rating: review.rating,
-              text: review.text,
-              date: new Date(review.time * 1000).toISOString().split('T')[0],
-              avatar: review.profile_photo_url,
-              source: 'Google',
-              relativeTime: review.relative_time_description
-            })) ?? [];
-
-          // Set business info
-          setBusinessInfo({
-            name: place.name,
-            rating: place.rating,
-            totalReviews: place.user_ratings_total
-          });
-
-          setReviews(filteredReviews);
-        } else {
-          console.error('Places service failed:', status);
-          setHasError(true);
-        }
-        setLoading(false);
-      });
+      // Call our server endpoint instead of Google API directly
+      const response = await fetch(`http://localhost:3001/api/google-reviews?place_id=${placeId}`);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data: GoogleReviewsResponse = await response.json();
+      
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      
+      setReviews(data.reviews);
       
     } catch (error) {
       console.error('Error fetching Google reviews:', error);
       setHasError(true);
+    } finally {
       setLoading(false);
     }
   };
