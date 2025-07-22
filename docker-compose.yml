@@ -1,11 +1,12 @@
-version: '3.8'
-
 services:
   vasectomy-app:
     build:
       context: .
       dockerfile: Dockerfile
       target: production
+      args:
+        VITE_GOOGLE_PLACES_API_KEY: ${VITE_GOOGLE_PLACES_API_KEY}
+        VITE_GOOGLE_PLACE_ID: ${VITE_GOOGLE_PLACE_ID}
     container_name: vasectomy-clinic
     restart: unless-stopped
     

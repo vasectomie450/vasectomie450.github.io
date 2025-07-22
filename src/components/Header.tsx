@@ -12,7 +12,7 @@ const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const navRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -162,7 +162,7 @@ const Header: React.FC = () => {
                   return (
                     <Link
                       key={item.name}
-                      ref={(el) => (itemRefs.current[index] = el)}
+                      ref={(el) => { itemRefs.current[index] = el; }}
                       to={item.href}
                       className={`relative flex flex-col items-center justify-center px-4 py-3 rounded-xl transition-all duration-300 group ${
                         isActive 

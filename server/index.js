@@ -15,21 +15,14 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-// Security middleware
+// Security middleware - CSP temporarily disabled for debugging
+const cspConfig = {
+  // Completely disable CSP for now to resolve blocking issues
+  contentSecurityPolicy: false,
+};
+
 app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "https://www.youtube.com", "https://www.google.com"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "data:", "https:"],
-      connectSrc: ["'self'", "https://maps.googleapis.com"],
-      frameSrc: ["'self'", "https://www.youtube.com"],
-      objectSrc: ["'none'"],
-      upgradeInsecureRequests: NODE_ENV === 'production' ? [] : null,
-    },
-  },
+  ...cspConfig,
   hsts: NODE_ENV === 'production' ? {
     maxAge: 31536000,
     includeSubDomains: true,

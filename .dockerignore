@@ -64,7 +64,7 @@ jspm_packages/
 .yarn-integrity
 
 # dotenv environment variables file (except .env.example)
-.env
+# .env - commented out to allow build-time access for Vite
 !.env.example
 
 # Backup files

@@ -2,6 +2,14 @@
 # Stage 1: Build stage
 FROM node:20-alpine AS builder
 
+# Build arguments for environment variables
+ARG VITE_GOOGLE_PLACES_API_KEY
+ARG VITE_GOOGLE_PLACE_ID
+
+# Set environment variables from build args
+ENV VITE_GOOGLE_PLACES_API_KEY=$VITE_GOOGLE_PLACES_API_KEY
+ENV VITE_GOOGLE_PLACE_ID=$VITE_GOOGLE_PLACE_ID
+
 # Set working directory
 WORKDIR /app
 
@@ -16,14 +24,14 @@ RUN apk update && apk upgrade && \
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies with clean npm cache
-RUN npm ci --only=production --silent && \
+# Install ALL dependencies (including devDependencies) for building
+RUN npm ci --silent && \
     npm cache clean --force
 
 # Copy source code
 COPY . .
 
-# Build the application
+# Build the application (environment variables are already set from build args)
 RUN npm run build
 
 # Stage 2: Production stage

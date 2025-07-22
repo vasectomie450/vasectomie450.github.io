@@ -68,7 +68,8 @@ const GoogleReviews: React.FC = () => {
       const placeId = import.meta.env.VITE_GOOGLE_PLACE_ID || 'ChIJT54XLeovyUwRfvEzDQoAEbE';
       
       // Call our Express server proxy endpoint to avoid CORS issues
-      const response = await fetch(`http://localhost:3001/api/google-reviews?place_id=${placeId}`);
+      // Use relative URL for Docker compatibility
+      const response = await fetch(`/api/google-reviews?place_id=${placeId}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
