@@ -1,17 +1,72 @@
 <!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vasectomie Sans Bistouri | Dr Mélanie Savard-Côté | Vasectomie 450</title>
-    <meta name="description" content="Vasectomie sans bistouri avec Dr Mélanie Savard-Côté à Saint-Eustache. 640$ tout inclus, technique moderne, rendez-vous rapide. Laurentides, Laval, Lanaudière." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.google.com https://maps.googleapis.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https: blob:;
+    media-src 'self' https:;
+    connect-src 'self' https: wss:;
+    frame-src 'self' https://www.youtube.com https://www.google.com;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    upgrade-insecure-requests;
+  ">
+  
+  <!-- SEO and Social Meta Tags -->
+  <title>Vasectomie 450 - Clinique Spécialisée en Vasectomie</title>
+  <meta name="description" content="Clinique spécialisée en vasectomie offrant des services professionnels et sécurisés. Consultation, intervention et suivi personnalisé.">
+  <meta name="keywords" content="vasectomie, clinique, urologie, contraception masculine, intervention chirurgicale">
+  <meta name="author" content="Vasectomie 450">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vasectomie450.github.io/">
+  <meta property="og:title" content="Vasectomie 450 - Clinique Spécialisée">
+  <meta property="og:description" content="Clinique spécialisée en vasectomie offrant des services professionnels et sécurisés.">
+  <meta property="og:site_name" content="Vasectomie 450">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://vasectomie450.github.io/">
+  <meta property="twitter:title" content="Vasectomie 450 - Clinique Spécialisée">
+  <meta property="twitter:description" content="Clinique spécialisée en vasectomie offrant des services professionnels et sécurisés.">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  
+  <!-- Prevent FOUC -->
+  <style>
+    html { visibility: hidden; opacity: 0; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+  
+  <!-- Make page visible after load -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.documentElement.style.visibility = 'visible';
+      document.documentElement.style.opacity = '1';
+    });
+  </script>
+</body>
 </html>
