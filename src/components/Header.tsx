@@ -137,11 +137,11 @@ const Header: React.FC = () => {
           <nav className="hidden lg:flex items-center">
             <div 
               ref={navRef}
-              className="relative bg-gradient-to-r from-teal-500/10 via-primary-500/10 to-coral-500/10 backdrop-blur-xl rounded-2xl p-2 border border-white/20 shadow-xl"
+              className="relative bg-gradient-to-r from-teal-600/20 via-primary-600/20 to-coral-600/20 backdrop-blur-xl rounded-2xl p-2 border border-gray-300/40 shadow-xl"
             >
               {/* Animated Background Indicator */}
               <div 
-                className={`absolute top-2 bottom-2 bg-white rounded-xl shadow-lg ${
+                className={`absolute top-2 bottom-2 bg-white rounded-xl shadow-lg border border-gray-200/50 ${
                   isTransitioning ? 'transition-all duration-500 ease-out' : ''
                 }`}
                 style={{
@@ -166,22 +166,22 @@ const Header: React.FC = () => {
                       to={item.href}
                       className={`relative flex flex-col items-center justify-center px-4 py-3 rounded-xl transition-all duration-300 group ${
                         isActive 
-                          ? 'text-teal-600 z-10' 
-                          : 'text-gray-600 hover:text-teal-500 hover:bg-white/30'
+                          ? 'text-teal-700 z-10' 
+                          : 'text-gray-700 hover:text-teal-600 hover:bg-white/40'
                       }`}
                     >
                       <Icon className={`w-5 h-5 mb-1 transition-all duration-300 ${
                         isActive ? 'scale-110' : 'group-hover:scale-105'
                       }`} />
                       <span className={`text-xs font-medium transition-all duration-300 whitespace-nowrap ${
-                        isActive ? 'font-semibold' : ''
+                        isActive ? 'font-bold' : 'font-semibold'
                       }`}>
                         {item.name}
                       </span>
                       
                       {/* Hover effect */}
                       {!isActive && (
-                        <div className="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-primary-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-teal-600/10 to-primary-600/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       )}
                     </Link>
                   );
@@ -195,25 +195,25 @@ const Header: React.FC = () => {
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="lang-toggle flex items-center space-x-1 px-3 py-2 rounded-lg bg-gradient-to-r from-teal-50 to-primary-50 hover:from-teal-100 hover:to-primary-100 border border-teal-200/50 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="lang-toggle flex items-center space-x-1 px-3 py-2 rounded-lg bg-gradient-to-r from-teal-100 to-primary-100 hover:from-teal-200 hover:to-primary-200 border border-teal-300/60 transition-all duration-300 shadow-sm hover:shadow-md"
             >
-              <Globe className="w-4 h-4 text-teal-600" />
-              <span className="text-sm font-medium uppercase text-teal-700">{language}</span>
+              <Globe className="w-4 h-4 text-teal-700" />
+              <span className="text-sm font-bold uppercase text-teal-800">{language}</span>
             </button>
 
             {/* Phone (Desktop) */}
             <a
               href="tel:+14509992973"
-              className="hidden lg:flex items-center space-x-2 text-teal-600 hover:text-teal-700 transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-teal-50"
+              className="hidden lg:flex items-center space-x-2 text-teal-700 hover:text-teal-800 transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-teal-100 font-semibold"
             >
               <Phone className="w-4 h-4" />
-              <span className="text-sm font-medium">(450) 999-2973</span>
+              <span className="text-sm font-semibold">(450) 999-2973</span>
             </a>
 
             {/* CTA Button */}
             <Link
               to="/appointments"
-              className="hidden lg:flex items-center space-x-2 bg-gradient-to-r from-teal-500 to-primary-500 hover:from-teal-600 hover:to-primary-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="hidden lg:flex items-center space-x-2 bg-gradient-to-r from-teal-600 to-primary-600 hover:from-teal-700 hover:to-primary-700 text-white px-4 py-2 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               <Calendar className="w-4 h-4" />
               <span className="text-sm">{t('nav.appointment')}</span>
@@ -222,12 +222,12 @@ const Header: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 relative z-10"
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200 relative z-10"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6 text-gray-700" />
+                <X className="w-6 h-6 text-gray-800" />
               ) : (
-                <Menu className="w-6 h-6 text-gray-700" />
+                <Menu className="w-6 h-6 text-gray-800" />
               )}
             </button>
           </div>
@@ -235,7 +235,7 @@ const Header: React.FC = () => {
 
         {/* Mobile/Tablet Sophisticated Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-xl">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-300 shadow-xl">
             <div className="p-4">
               {/* Mobile Navigation Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
@@ -250,8 +250,8 @@ const Header: React.FC = () => {
                       onClick={() => setIsMenuOpen(false)}
                       className={`relative flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-300 group ${
                         isActive 
-                          ? 'bg-gradient-to-br from-teal-500 to-primary-500 text-white shadow-lg transform scale-105' 
-                          : 'bg-gradient-to-br from-gray-50 to-gray-100 text-gray-700 hover:from-teal-50 hover:to-primary-50 hover:text-teal-600 hover:shadow-md hover:scale-102'
+                          ? 'bg-gradient-to-br from-teal-600 to-primary-600 text-white shadow-lg transform scale-105' 
+                          : 'bg-gradient-to-br from-gray-100 to-gray-200 text-gray-800 hover:from-teal-100 hover:to-primary-100 hover:text-teal-700 hover:shadow-md hover:scale-102'
                       }`}
                       style={{
                         animationDelay: `${index * 50}ms`
@@ -260,15 +260,15 @@ const Header: React.FC = () => {
                       <Icon className={`w-6 h-6 mb-2 transition-all duration-300 ${
                         isActive ? 'scale-110' : 'group-hover:scale-105'
                       }`} />
-                      <span className={`text-sm font-medium text-center transition-all duration-300 ${
-                        isActive ? 'font-semibold' : ''
+                      <span className={`text-sm font-semibold text-center transition-all duration-300 ${
+                        isActive ? 'font-bold' : ''
                       }`}>
                         {item.name}
                       </span>
                       
                       {/* Active indicator */}
                       {isActive && (
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-coral-400 rounded-full animate-pulse" />
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-coral-500 rounded-full animate-pulse" />
                       )}
                     </Link>
                   );
@@ -276,11 +276,11 @@ const Header: React.FC = () => {
               </div>
               
               {/* Mobile CTA Section */}
-              <div className="space-y-3 pt-4 border-t border-gray-200">
+              <div className="space-y-3 pt-4 border-t border-gray-300">
                 <Link
                   to="/appointments"
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center justify-center space-x-2 bg-gradient-to-r from-teal-500 to-primary-500 hover:from-teal-600 hover:to-primary-600 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-full"
+                  className="flex items-center justify-center space-x-2 bg-gradient-to-r from-teal-600 to-primary-600 hover:from-teal-700 hover:to-primary-700 text-white py-3 px-4 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-full"
                 >
                   <Calendar className="w-5 h-5" />
                   <span>{t('nav.appointment')}</span>
@@ -288,7 +288,7 @@ const Header: React.FC = () => {
                 
                 <a
                   href="tel:+14509992973"
-                  className="flex items-center justify-center space-x-2 bg-white border-2 border-teal-500 text-teal-600 hover:bg-teal-50 py-3 px-4 rounded-xl font-semibold transition-all duration-300 w-full"
+                  className="flex items-center justify-center space-x-2 bg-white border-2 border-teal-600 text-teal-700 hover:bg-teal-50 py-3 px-4 rounded-xl font-bold transition-all duration-300 w-full"
                 >
                   <Phone className="w-5 h-5" />
                   <span>(450) 999-2973</span>
