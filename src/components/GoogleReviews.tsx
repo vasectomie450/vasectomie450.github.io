@@ -1,9 +1,13 @@
+// React imports
 import React, { useState, useEffect } from 'react';
 import { Star, Quote } from 'lucide-react';
+
+// Context for internationalization
 import { useLanguage } from '../contexts/LanguageContext';
 
-
-
+/**
+ * Interface for individual review data structure
+ */
 interface Review {
   id: string;
   author: string;
@@ -15,36 +19,55 @@ interface Review {
   relativeTime?: string;
 }
 
+/**
+ * Interface for business information from Google Places API
+ */
 interface BusinessInfo {
   name: string;
   rating: number;
   totalReviews: number;
 }
 
+/**
+ * Interface for the complete API response from our server
+ */
 interface GoogleReviewsResponse {
   businessInfo: BusinessInfo;
   reviews: Review[];
   error?: string;
 }
 
+/**
+ * GoogleReviews component that fetches and displays Google reviews
+ * Uses a proxy server to avoid CORS issues with Google Places API
+ * Displays only high-rated reviews (4.5+ stars) in a responsive grid
+ */
 const GoogleReviews: React.FC = () => {
+  // State management for reviews data and UI states
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const { t } = useLanguage();
 
+  // Fetch reviews on component mount
   useEffect(() => {
     fetchGoogleReviews();
   }, []);
 
+  /**
+   * Fetches Google reviews from our proxy server
+   * Uses environment variable for place ID with fallback to clinic's ID
+   * Handles errors gracefully and updates component state
+   */
   const fetchGoogleReviews = async () => {
     try {
       setLoading(true);
       setHasError(false);
 
+      // Get Google Place ID from environment or use clinic's default
       const placeId = import.meta.env.VITE_GOOGLE_PLACE_ID || 'ChIJT54XLeovyUwRfvEzDQoAEbE';
       
-      // Call our server endpoint instead of Google API directly
+      // Call our Express server proxy endpoint to avoid CORS issues
       const response = await fetch(`http://localhost:3001/api/google-reviews?place_id=${placeId}`);
       
       if (!response.ok) {
@@ -57,6 +80,7 @@ const GoogleReviews: React.FC = () => {
         throw new Error(data.error);
       }
       
+      // Update state with filtered high-quality reviews
       setReviews(data.reviews);
       
     } catch (error) {
@@ -67,6 +91,11 @@ const GoogleReviews: React.FC = () => {
     }
   };
 
+  /**
+   * Renders star rating display
+   * @param rating - Number of stars to fill (1-5)
+   * @returns Array of Star components with appropriate styling
+   */
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
@@ -78,12 +107,12 @@ const GoogleReviews: React.FC = () => {
     ));
   };
 
-  // Don't render anything if there's an error or no reviews
+  // Graceful error handling - don't render anything if there's an error or no reviews
   if (hasError || (!loading && reviews.length === 0)) {
     return null;
   }
 
-  // Show loading state
+  // Loading state with spinner and French loading text
   if (loading) {
     return (
       <section className="section-padding bg-white">
